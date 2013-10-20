@@ -23,3 +23,12 @@ do
   fi
 done
 
+# vimのbundle
+if [ ! -d "$HOME/.vim/bundle" ]; then
+  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
+
+grep "source $MY_HOME/.bashrc_sub" $HOME/.bashrc
+if [ $? != 0 ]; then
+  echo "source $MY_HOME/.bashrc_sub" >> $HOME/.bashrc
+fi
