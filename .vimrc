@@ -69,7 +69,7 @@ filetype plugin indent on     " required!
 " :SyntasticToggleModeでOffされる。
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade'] }
+                           \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php'] }
 
 "エラー時、Quickfixが起動する
 let g:syntastic_auto_loc_list = 1	
@@ -82,10 +82,11 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
 " ファイルタイプごとの設定
+" ts:tabstop, sw:shift width
 autocmd FileType javascript set ts=2 sw=2 st=0 expandtab
 autocmd FileType html set ts=2 sw=2 st=0 expandtab
 autocmd FileType ruby set ts=2 sw=2 st=0 expandtab
 autocmd FileType sh set ts=2 sw=2 st=0 expandtab
 autocmd FileType xml set ts=2 sw=2 st=0 expandtab
-autocmd FileType php set ts=4 sw=4 st=0 expandtab
+autocmd FileType php set ts=4 dictionary=~/.vim/dict/php.dict
 autocmd FileType jade set ts=2 sw=2 st=0 expandtab
