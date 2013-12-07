@@ -2,8 +2,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 set modeline
 
-" 色付けon
-syntax on
+" 色付けon -> 下に移動。
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -80,9 +79,12 @@ autocmd FileType javascript set omnifunc=jscomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType jade set omnifunc=jadecomplete#CompleteJade
 
 " ファイルタイプごとの設定
 " ts:tabstop, sw:shift width
+autocmd FileType c set ts=2 sw=2 st=0 expandtab
+autocmd FileType cpp set ts=2 sw=2 st=0 expandtab
 autocmd FileType javascript set ts=2 sw=2 st=0 expandtab
 autocmd FileType html set ts=2 sw=2 st=0 expandtab
 autocmd FileType ruby set ts=2 sw=2 st=0 expandtab
@@ -90,3 +92,6 @@ autocmd FileType sh set ts=2 sw=2 st=0 expandtab
 autocmd FileType xml set ts=2 sw=2 st=0 expandtab
 autocmd FileType php set ts=4 dictionary=~/.vim/dict/php.dict
 autocmd FileType jade set ts=2 sw=2 st=0 expandtab
+
+" 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
+syntax on
