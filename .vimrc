@@ -53,6 +53,7 @@ Bundle 'jQuery'
 Bundle 'SQLUtilities'
 
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'thoughtbot/vim-rspec'
 
 Bundle 'digitaltoad/vim-jade'
 
