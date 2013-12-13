@@ -53,7 +53,10 @@ Bundle 'jQuery'
 Bundle 'SQLUtilities'
 
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'thoughtbot/vim-rspec'
+
+" rspecのシンタックスハイライト
+Bundle 'Keithbsmiley/rspec.vim'
+autocmd BufReadPost,BufNewFile *_spec.rb set syntax=rspec
 
 Bundle 'digitaltoad/vim-jade'
 
@@ -67,7 +70,7 @@ filetype plugin indent on     " required!
 " --------*--------*--------*--------*--------*--------*--------*--------
 " passive_filetypesに登録していると、:SyntasticCheckすると、シンタックスチェックする
 " :SyntasticToggleModeでOffされる。
-let g:syntastic_mode_map = { 'mode': 'active',
+let g:syntastic_mode_map = { 'mode': 'passive',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php'] }
 
