@@ -44,7 +44,8 @@ Bundle 'scrooloose/syntastic'
 " Better Javascript Indentation
 Bundle 'pangloss/vim-javascript'
 
-Bundle 'teramako/jscomplete-vim'
+" なくなった。
+" Bundle 'teramako/jscomplete-vim'
 
 " jQuery
 Bundle 'jQuery'
@@ -65,6 +66,8 @@ Bundle 'digitaltoad/vim-jade'
 "   Enter カーソル上のファイルを開く
 Bundle 'mru.vim'
 
+Bundle 'elzr/vim-json'
+
 filetype plugin indent on     " required!
 
 " --------*--------*--------*--------*--------*--------*--------*--------
@@ -72,7 +75,7 @@ filetype plugin indent on     " required!
 " :SyntasticToggleModeでOffされる。
 let g:syntastic_mode_map = { 'mode': 'passive',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php'] }
+                           \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php', 'json'] }
 
 "エラー時、Quickfixが起動する
 let g:syntastic_auto_loc_list = 1	
@@ -96,6 +99,7 @@ autocmd FileType sh set ts=2 sw=2 st=0 expandtab
 autocmd FileType xml set ts=2 sw=2 st=0 expandtab
 autocmd FileType php set ts=4 dictionary=~/.vim/dict/php.dict
 autocmd FileType jade set ts=2 sw=2 st=0 expandtab
+autocmd FileType json set ts=2 sw=2 st=0 expandtab
 
 " 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
 syntax on
