@@ -1,3 +1,6 @@
+" ファイルの文字コードを自動認識
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-bom,default,latin
+
 set nocompatible               " be iMproved
 filetype off                   " required!
 set modeline
@@ -73,8 +76,6 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'slim-template/vim-slim'
 
 filetype plugin indent on     " required!
-" 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
-syntax on
 
 
 " --------*--------*--------*--------*--------*--------*--------*--------
@@ -109,3 +110,9 @@ autocmd FileType jade set ts=2 sw=2 st=0 expandtab
 autocmd FileType json set ts=2 sw=2 st=0 expandtab
 autocmd FileType yaml set ts=2 sw=2 st=0 expandtab
 autocmd FileType slim set ts=2 sw=2 st=0 expandtab
+
+" .slimでうまくハイライトできない時、
+" :setfiletype slimとすればハイライトされる。
+
+" 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
+syntax on
