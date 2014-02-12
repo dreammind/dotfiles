@@ -40,6 +40,7 @@ let g:neocomplcache_snippets_dir = "~/.vim/snippets"
 imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 
+" --------*--------*--------*--------*--------*--------*--------*--------
 " シンタックスチェック
 " javascriptを利用する場合、jshint/jslintのインストールが必須。jslintが良いよさげ
 Bundle 'scrooloose/syntastic'
@@ -47,21 +48,26 @@ Bundle 'scrooloose/syntastic'
 " Better Javascript Indentation
 Bundle 'pangloss/vim-javascript'
 
-" なくなった。
-" Bundle 'teramako/jscomplete-vim'
-
 " jQuery
 Bundle 'jQuery'
 
 "SQLUtilities : SQL整形、生成ユーティリティ
 Bundle 'SQLUtilities'
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+" Ruby, Rails etc
 Bundle 'vim-ruby/vim-ruby'
+
+" :Emodel, :Eview, :Econtroller
+Bundle 'tpope/vim-rails'
+
+Bundle 'slim-template/vim-slim'
 
 " rspecのシンタックスハイライト
 Bundle 'Keithbsmiley/rspec.vim'
 autocmd BufReadPost,BufNewFile *_spec.rb set syntax=rspec
 
+" --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'digitaltoad/vim-jade'
 
 " 最近開いたファイルの履歴管理ができます
@@ -73,9 +79,8 @@ Bundle 'elzr/vim-json'
 
 Bundle 'plasticboy/vim-markdown'
 
-Bundle 'slim-template/vim-slim'
 
-" --------*--------
+" --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors = 0
@@ -91,7 +96,12 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 colorscheme elflord
 
-" --------*--------
+" ctags関連
+" :tselect タグ名 で複数のタグから選択
+" CTRL-]でジャンプ
+nnoremap <C-]> g<C-]>
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 filetype plugin indent on     " required!
 
 
@@ -133,3 +143,4 @@ autocmd FileType slim set ts=2 sw=2 st=0 expandtab
 
 " 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
 syntax on
+
