@@ -11,6 +11,9 @@ if [ "$PS1" != "" ]; then
   bind '"\C-n": history-search-forward'
 fi
 
+if [ -f "/usr/local/bin/ctags" ]; then
+  alias   ctags='/usr/local/bin/ctags'
+fi
 #
 alias   ceall='find . -name "*~" | xargs /bin/rm -f'
 #alias   ls='ls --color=tty'

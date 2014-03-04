@@ -1,3 +1,6 @@
+" ファイルの文字コードを自動認識
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-bom,default,latin
+
 set nocompatible               " be iMproved
 filetype off                   " required!
 set modeline
@@ -13,7 +16,7 @@ Bundle 'gmarik/vundle'
 " 究極のvim的補完環境
 " <C-x><C-k>するとsnippetsで補完される
 Bundle 'Shougo/neocomplcache.git'
-Bundle 'Shougo/neosnippet.git'
+Bundle 'Shougo/neosnippet-snippets.git'
 
 let g:neocomplcache_enable_at_startup = 1
 "let g:neocomplcache_enable_smart_case = 1
@@ -37,6 +40,7 @@ let g:neocomplcache_snippets_dir = "~/.vim/snippets"
 imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 
+" --------*--------*--------*--------*--------*--------*--------*--------
 " シンタックスチェック
 " javascriptを利用する場合、jshint/jslintのインストールが必須。jslintが良いよさげ
 Bundle 'scrooloose/syntastic'
@@ -44,21 +48,26 @@ Bundle 'scrooloose/syntastic'
 " Better Javascript Indentation
 Bundle 'pangloss/vim-javascript'
 
-" なくなった。
-" Bundle 'teramako/jscomplete-vim'
-
 " jQuery
 Bundle 'jQuery'
 
 "SQLUtilities : SQL整形、生成ユーティリティ
 Bundle 'SQLUtilities'
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+" Ruby, Rails etc
 Bundle 'vim-ruby/vim-ruby'
+
+" :Emodel, :Eview, :Econtroller
+Bundle 'tpope/vim-rails'
+
+Bundle 'slim-template/vim-slim'
 
 " rspecのシンタックスハイライト
 Bundle 'Keithbsmiley/rspec.vim'
 autocmd BufReadPost,BufNewFile *_spec.rb set syntax=rspec
 
+" --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'digitaltoad/vim-jade'
 
 " 最近開いたファイルの履歴管理ができます
@@ -70,11 +79,30 @@ Bundle 'elzr/vim-json'
 
 Bundle 'plasticboy/vim-markdown'
 
-Bundle 'slim-template/vim-slim'
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+Bundle 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_auto_colors = 0
+"colorscheme morning
+" 奇数のインデント。いまは表示させない。
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=lightgrey
+" 偶数インデントのカラー
+" darkgrayもいいかも。2014/02/04
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgreen
+" ハイライト色の変化の幅
+let g:indent_guides_color_change_percent = 30
+" ガイドの幅
+let g:indent_guides_guide_size = 1
+colorscheme elflord
+
+" ctags関連
+" :tselect タグ名 で複数のタグから選択
+" CTRL-]でジャンプ
+nnoremap <C-]> g<C-]>
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 filetype plugin indent on     " required!
-" 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
-syntax on
 
 
 " --------*--------*--------*--------*--------*--------*--------*--------
@@ -109,3 +137,10 @@ autocmd FileType jade set ts=2 sw=2 st=0 expandtab
 autocmd FileType json set ts=2 sw=2 st=0 expandtab
 autocmd FileType yaml set ts=2 sw=2 st=0 expandtab
 autocmd FileType slim set ts=2 sw=2 st=0 expandtab
+
+" .slimでうまくハイライトできない時、
+" :setfiletype slimとすればハイライトされる。
+
+" 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
+syntax on
+
