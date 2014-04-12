@@ -58,8 +58,8 @@ Bundle 'SQLUtilities'
 " Ruby, Rails etc
 Bundle 'vim-ruby/vim-ruby'
 
-" :Emodel, :Eview, :Econtroller
-Bundle 'tpope/vim-rails'
+"" :Emodel, :Eview, :Econtroller
+"Bundle 'tpope/vim-rails'
 
 Bundle 'slim-template/vim-slim'
 
@@ -96,13 +96,40 @@ let g:indent_guides_color_change_percent = 30
 let g:indent_guides_guide_size = 1
 colorscheme elflord
 
+" --------*--------*--------*--------*--------*--------*--------*--------
 " ctags関連
 " :tselect タグ名 で複数のタグから選択
 " CTRL-]でジャンプ
 nnoremap <C-]> g<C-]>
 
 " --------*--------*--------*--------*--------*--------*--------*--------
+""  netrw
+" netrwは常にtree view
+"let g:netrw_liststyle = 3
+" 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
+"let g:netrw_altv = 1
+" " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
+"let g:netrw_alto = 1
+
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 filetype plugin indent on     " required!
+
+" --------*--------*--------*--------*--------*--------*--------*--------
+" vimgrepの使い方
+" -------------
+" :args `git ls-files app config -x *.png`           
+"   -> これで##にgitで管理しているファイル一覧のappとconfigが格納される
+" :vim[grep] {pattern} ##
+"   -> vimgrepで検索し、結果をウィンドウ(cw)で表示
+" :cn[ext]  -> 次の検索結果へ
+" :cN[ext]  -> 前の検索結果へ
+"   http://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b
+" :cw[indow]  -> vimgrep検索結果をしたのウィンドウで表示する
+"     (下記のQuickFixCmdPost)があるので不要。
+
+" :vimgrep実行後、quickfix-windowを開く
+autocmd QuickFixCmdPost *grep* cwindow
 
 
 " --------*--------*--------*--------*--------*--------*--------*--------

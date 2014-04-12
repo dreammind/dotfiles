@@ -14,6 +14,9 @@ fi
 if [ -f "/usr/local/bin/ctags" ]; then
   alias   ctags='/usr/local/bin/ctags'
 fi
+
+alias   grep='grep --color'
+alias   be='bundle exec'
 #
 alias   ceall='find . -name "*~" | xargs /bin/rm -f'
 #alias   ls='ls --color=tty'
