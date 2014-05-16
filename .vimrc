@@ -7,6 +7,24 @@
 "" " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
 "let g:netrw_alto = 1
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+" タブ機能
+nnoremap [Tag]  <Nop>
+nmap t [Tag]
+" t1 1番目のタブ, t2 2番目のタブ ......
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n ':<C-u>tabnext'.n.'<CR>'
+endfor
+" tc タブを開く
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tx タブを閉じる
+map <silent> [Tag]x :tabclose<CR>
+" 次のタブへ
+map <silent> [Tag]n :tabnext<CR>
+" 前のタブへ
+map <silent> [Tag]p :tabprevious<CR>
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 " ファイルの文字コードを自動認識
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-bom,default,latin
 
