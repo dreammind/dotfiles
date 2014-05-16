@@ -163,6 +163,7 @@ filetype plugin indent on     " required!
 " vimgrepの使い方
 " -------------
 " :args `git ls-files app config -x *.png`           
+" :args `find app -name '*.rb'`           
 "   -> これで##にgitで管理しているファイル一覧のappとconfigが格納される
 " :vim[grep] {pattern} ##
 "   -> vimgrepで検索し、結果をウィンドウ(cw)で表示
