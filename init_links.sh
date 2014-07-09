@@ -26,6 +26,8 @@ done
 # vimのbundle
 if [ ! -d "$HOME/.vim/bundle" ]; then
   git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+else
+  (cd $HOME/.vim/bundle/vundle; git pull --rebase)
 fi
 
 grep "source $MY_HOME/.bashrc_sub" $HOME/.bashrc
