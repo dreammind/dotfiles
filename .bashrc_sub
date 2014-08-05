@@ -16,6 +16,13 @@ if [ -f "/usr/local/bin/ctags" ]; then
   alias   ctags='/usr/local/bin/ctags'
 fi
 
+if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
+  if [ -f "/usr/libexec/java_home" ]; then
+    #export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+    export JAVA_HOME=`/usr/libexec/java_home`
+  fi
+fi
+
 alias   grep='grep --color'
 alias   be='bundle exec'
 #
