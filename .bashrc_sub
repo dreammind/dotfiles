@@ -5,11 +5,16 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=10000
 HISTFILESIZE=20000
 
+#
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 # bind
 if [ "$PS1" != "" ]; then
   bind '"\C-p": history-search-backward'
   bind '"\C-n": history-search-forward'
-  PS1="@\h:[\W]\$ "
+  PS1="@\h:[\W]\$(parse_git_branch)\$ "
 fi
 
 if [ -f "/usr/local/bin/ctags" ]; then
@@ -22,6 +27,7 @@ if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
     export JAVA_HOME=`/usr/libexec/java_home`
   fi
 fi
+
 
 alias   grep='grep --color'
 alias   be='bundle exec'
