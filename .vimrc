@@ -153,6 +153,8 @@ nmap bx :BookmarkClearAll<CR>
 " mark aをvimのmarkに戻した。
 nmap ma :mark a<CR>
 
+let g:bookmark_auto_save = 1
+
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 ""  netrw
