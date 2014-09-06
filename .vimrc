@@ -141,10 +141,18 @@ nnoremap <C-]> g<C-]>
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  ブックマーク https://github.com/MattesGroeger/vim-bookmarks
-"  mm ブックマークする/しないのトグル
-"  ma すべてのブックマークを表示する
-"  mx すべてのブックマークをクリアする
+"  キーバインディングは変更した。
+"  bm ブックマークする/しないのトグル
+"  ba すべてのブックマークを表示する
+"  bx すべてのブックマークをクリアする
 Bundle 'MattesGroeger/vim-bookmarks'
+nmap bm :BookmarkToggle<CR>
+nmap ba :BookmarkShowAll<CR>
+nmap bx :BookmarkClearAll<CR>
+
+" mark aをvimのmarkに戻した。
+nmap ma :mark a<CR>
+
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 ""  netrw
