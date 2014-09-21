@@ -1,9 +1,11 @@
 
 export EDITOR="vim"
 
-HISTCONTROL=ignoredups:ignorespace
-HISTSIZE=10000
-HISTFILESIZE=20000
+# erasedups: 全履歴に渡り重複コマンドを削除します
+HISTCONTROL=erasedups
+HISTIGNORE=history:ls:pwd:jobs:fg:exit
+HISTSIZE=20000
+HISTFILESIZE=40000
 
 #
 parse_git_branch() {
