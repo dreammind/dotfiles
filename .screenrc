@@ -1,1 +1,15 @@
-escape ^uu
+# Escape key is Ctrl-T, literal is t.
+escape ^Tt
+
+# メモ
+#  c (create) 新しいウィンドウとシェルを生成
+#  d (detach) 
+#  S (split) 画面を2分割
+#  TAB       ウィンドウを移動
+#  n (next)  次のウィンドウに切り替える
+#  A (title) ウィンドウのタイトルを変更
+#  :         コマンドを実行するモード
+#  K (kill)  現在のウィンドウを破棄する
+#  w         ウィンドウの一覧を表示
+#
+# detachしたscreenに接続。screen -r
