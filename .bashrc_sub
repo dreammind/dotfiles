@@ -31,6 +31,7 @@ if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
 fi
 
 
+alias   mkdir='mkdir -p'
 alias   grep='grep --color'
 alias   be='bundle exec'
 #
