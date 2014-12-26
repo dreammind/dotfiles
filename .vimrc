@@ -1,3 +1,20 @@
+" http://itchyny.hatenablog.com/entry/2014/12/25/090000
+
+" 補完メニューの高さ good!
+set pumheight=10
+" .swpファイルがある時、read-onlyで開く。 good!
+augroup swapchoice-readonly
+  autocmd!
+  autocmd SwapExists * let v:swapchoice = 'o'
+augroup END
+
+" カッコの対応で一瞬カーソルが飛ぶときの飛ぶ時間を0.1秒に設定。
+set showmatch
+set matchtime=1
+" Yで一行ヤンク
+nnoremap Y y$
+" 一行が長すぎても表示される
+set display=lastline
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  TIPS
 " g; 前に変更した位置へカーソルを移動する
