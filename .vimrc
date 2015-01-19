@@ -133,6 +133,7 @@ Bundle 'elzr/vim-json'
 
 Bundle 'plasticboy/vim-markdown'
 
+Bundle 'derekwyatt/vim-scala'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'nathanaelkane/vim-indent-guides'
