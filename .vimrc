@@ -232,7 +232,7 @@ autocmd FileType html set ts=2 sw=2 st=0 expandtab
 autocmd FileType ruby set ts=2 sw=2 st=0 expandtab
 autocmd FileType sh set ts=2 sw=2 st=0 expandtab
 autocmd FileType xml set ts=2 sw=2 st=0 expandtab
-autocmd FileType php set ts=4 dictionary=~/.vim/dict/php.dict
+autocmd FileType php set ts=4 sw=4 st=0 expandtab dictionary=~/.vim/dict/php.dict
 autocmd FileType jade set ts=2 sw=2 st=0 expandtab
 autocmd FileType json set ts=2 sw=2 st=0 expandtab
 autocmd FileType yaml set ts=2 sw=2 st=0 expandtab
