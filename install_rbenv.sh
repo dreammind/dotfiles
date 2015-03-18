@@ -62,3 +62,4 @@ done
 if $run_gem; then
   echo "Please exec 'rbenv rehash'"
 fi
+echo "Please exec 'source ~/.bashrc'"
