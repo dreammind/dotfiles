@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RUBY_VER="2.2.1"
-GEMS="bundler berkshelf chef knife-zero serverspec"
+GEMS="bundler berkshelf chef knife-zero knife-solo serverspec"
 
 APT_PKG="build-essential"
 
