@@ -204,6 +204,11 @@ filetype plugin indent on     " required!
 " :vimgrep実行後、quickfix-windowを開く
 autocmd QuickFixCmdPost *grep* cwindow
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+" カッコを入力すると、自動的に閉じカッコも挿入される。insertモードのままなので
+" 便利。
+Bundle 'Townk/vim-autoclose'
+
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " passive_filetypesに登録していると、:SyntasticCheckすると、シンタックスチェックする
