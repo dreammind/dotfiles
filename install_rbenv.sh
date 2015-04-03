@@ -39,7 +39,8 @@ if ! grep .rbenv $HOME/.bashrc > /dev/null; then
   echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 fi
 
-source ~/.bashrc
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 install_ruby() {
   echo rbenv install $RUBY_VER
@@ -58,6 +59,8 @@ else
   fi
 fi
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 run_gem=false
 for g in $GEMS
