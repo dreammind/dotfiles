@@ -16,7 +16,7 @@ if echo $UNMAE | grep "Ubuntu" > /dev/null; then
       exit_flag=true
     fi
   done
-elif test -f /etc/redhat-release
+elif test -f /etc/redhat-release; then
   for p in $YUM_PKG
   do
     if ! rpm -qa | grep $p > /dev/null; then
