@@ -3,11 +3,12 @@
 RUBY_VER="2.2.1"
 GEMS="bundler berkshelf chef knife-zero knife-solo serverspec"
 
-APT_PKG="build-essential"
+APT_PKG="autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev"
+YUM_PKG="gcc openssl-devel libyaml-devel libffi-devel readline-devel zlib-devel gdbm-devel ncurses-devel"
 
+exit_flag=false
 UNAME=`uname -a`
 if echo $UNMAE | grep "Ubuntu" > /dev/null; then
-  exit_flag=false
   for p in $APT_PKG
   do
     if ! dpkg -l $p > /dev/null; then
@@ -15,9 +16,18 @@ if echo $UNMAE | grep "Ubuntu" > /dev/null; then
       exit_flag=true
     fi
   done
-  if $exit_flag; then
-    exit -1
-  fi
+elif test -f /etc/redhat-release
+  for p in $YUM_PKG
+  do
+    if ! rpm -qa | grep $p > /dev/null; then
+      echo "$p not installed. sudo yum -y install $p"
+      exit_flag=true
+    fi
+  done
+fi
+
+if $exit_flag; then
+  exit -1
 fi
 
 if ! test -d $HOME/.rbenv; then
