@@ -209,6 +209,11 @@ autocmd QuickFixCmdPost *grep* cwindow
 " 便利。不要なESCを何度も入力しないといけないので、使わないようにした。
 "Bundle 'Townk/vim-autoclose'
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+"  editorconfigは複数のエディタ間で共通のインデントやエンコーディング
+"  を共有化できる。
+" カレントディレクトリの.editorconfigを読み込む
+Bundle 'editorconfig/editorconfig-vim'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " passive_filetypesに登録していると、:SyntasticCheckすると、シンタックスチェックする
