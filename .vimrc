@@ -124,6 +124,8 @@ autocmd BufReadPost,BufNewFile *_spec.rb set syntax=rspec
 " --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'digitaltoad/vim-jade'
 
+Bundle 'GutenYe/json5.vim'
+
 " 最近開いたファイルの履歴管理ができます
 " :MRU ファイルリストを表示
 "   Enter カーソル上のファイルを開く
