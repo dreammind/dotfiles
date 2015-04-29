@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUBY_VER="2.2.1"
+RUBY_VER="2.2.2"
 GEMS="bundler berkshelf chef knife-zero knife-solo serverspec"
 
 APT_PKG="autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev"
