@@ -33,6 +33,9 @@ fi
 if ! test -d $HOME/.rbenv; then
   git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+else
+  (cd ~/.rbenv; git pull)
+  (cd ~/.rbenv/plugins/ruby-build; git pull)
 fi
 if ! grep .rbenv $HOME/.bashrc > /dev/null; then
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
