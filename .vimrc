@@ -125,8 +125,8 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'slim-template/vim-slim'
 
 " rspecのシンタックスハイライト
-Bundle 'Keithbsmiley/rspec.vim'
-autocmd BufReadPost,BufNewFile *_spec.rb set syntax=rspec
+"Bundle 'Keithbsmiley/rspec.vim'
+Bundle 'Keith/rspec.vim'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'digitaltoad/vim-jade'
