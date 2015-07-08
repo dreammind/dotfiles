@@ -2,7 +2,7 @@
 
 MY_HOME=$(cd $(dirname $0) && pwd)
 
-DOT_FILES=".gemrc .vimrc .bashrc .ctags .screenrc .vim/dict/php.dict"
+DOT_FILES=".gemrc .vimrc .bashrc .ctags .screenrc .gitignore_global .vim/dict/php.dict"
 
 if [ ! -d "$HOME/.vim/dict" ]; then
   mkdir -p $HOME/.vim/dict
