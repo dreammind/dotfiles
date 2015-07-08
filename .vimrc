@@ -168,6 +168,7 @@ colorscheme elflord
 " 1) CTRL-]でジャンプ
 " 2) CTRL-tで直前のタグに戻る
 nnoremap <C-]> g<C-]>
+let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:property'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  ブックマーク https://github.com/MattesGroeger/vim-bookmarks
