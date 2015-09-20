@@ -119,8 +119,11 @@ Bundle 'SQLUtilities'
 " Ruby, Rails etc
 Bundle 'vim-ruby/vim-ruby'
 
-"" :Emodel, :Eview, :Econtroller
-"Bundle 'tpope/vim-rails'
+" :Emodel モデル名, :Eview ビュー名, :Econtroller コントローラ名
+" gf は、
+" :A でrspecとの行き来ができる
+" :R でdb/schemaとの行き来ができる
+Bundle 'tpope/vim-rails'
 
 Bundle 'slim-template/vim-slim'
 
@@ -181,6 +184,7 @@ nmap bx :BookmarkClearAll<CR>
 " mark aをvimのmarkに戻した。
 nmap ma :mark a<CR>
 
+let g:bookmark_save_per_working_dir = 1
 let g:bookmark_auto_save = 1
 
 
