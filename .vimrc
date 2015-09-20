@@ -147,6 +147,8 @@ Bundle 'plasticboy/vim-markdown'
 
 Bundle 'derekwyatt/vim-scala'
 
+Bundle 'Matt-Deacalion/vim-systemd-syntax'
+
 " --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
@@ -169,6 +171,7 @@ colorscheme elflord
 " 1) CTRL-]でジャンプ
 " 2) CTRL-tで直前のタグに戻る
 nnoremap <C-]> g<C-]>
+let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:property'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  ブックマーク https://github.com/MattesGroeger/vim-bookmarks
