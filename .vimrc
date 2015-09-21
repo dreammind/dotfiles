@@ -176,20 +176,22 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:prop
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  ブックマーク https://github.com/MattesGroeger/vim-bookmarks
 "  キーバインディングは変更した。
-"  bm ブックマークする/しないのトグル
-"  ba すべてのブックマークを表示する
-"  bx すべてのブックマークをクリアする
+"    Bm ブックマークする/しないのトグル
+"    Ba すべてのブックマークを表示する
+"    Bx すべてのブックマークをクリアする
 Bundle 'MattesGroeger/vim-bookmarks'
-nmap bm :BookmarkToggle<CR>
-nmap ba :BookmarkShowAll<CR>
-nmap bx :BookmarkClearAll<CR>
+let g:bookmark_no_default_key_mappings = 1
 
-" mark aをvimのmarkに戻した。
-nmap ma :mark a<CR>
+nmap Bm :BookmarkToggle<CR>
+nmap Ba :BookmarkShowAll<CR>
+nmap Bn :BookmarkNext<CR>
+nmap Bp :BookmarkPrev<CR>
+nmap Bx :BookmarkClearAll<CR>
 
-let g:bookmark_save_per_working_dir = 1
+let g:bookmark_manage_per_buffer = 1
 let g:bookmark_auto_save = 1
-
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_close = 1
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 ""  netrw
