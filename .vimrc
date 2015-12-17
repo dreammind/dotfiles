@@ -149,6 +149,8 @@ Bundle 'derekwyatt/vim-scala'
 
 Bundle 'Matt-Deacalion/vim-systemd-syntax'
 
+Bundle 'tfnico/vim-gradle'
+
 " --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
@@ -266,6 +268,7 @@ autocmd FileType jade set ts=2 sw=2 st=0 expandtab
 autocmd FileType json set ts=2 sw=2 st=0 expandtab
 autocmd FileType yaml set ts=2 sw=2 st=0 expandtab
 autocmd FileType slim set ts=2 sw=2 st=0 expandtab
+autocmd FileType gradle set ts=2 sw=2 st=0 expandtab
 
 " .slimでうまくハイライトできない時、
 " :setfiletype slimとすればハイライトされる。
