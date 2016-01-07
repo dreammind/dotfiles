@@ -152,20 +152,26 @@ Bundle 'Matt-Deacalion/vim-systemd-syntax'
 Bundle 'tfnico/vim-gradle'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
-Bundle 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_auto_colors = 0
-"colorscheme morning
-" 奇数のインデント。いまは表示させない。
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=lightgrey
-" 偶数インデントのカラー
-" darkgrayもいいかも。2014/02/04
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgreen
-" ハイライト色の変化の幅
-let g:indent_guides_color_change_percent = 30
-" ガイドの幅
-let g:indent_guides_guide_size = 1
-colorscheme elflord
+"  :IndentLineDisableでDisableにできる。
+Bundle 'Yggdroot/indentLine'
+
+" --------*--------*--------*--------*--------*--------*--------*--------
+
+"" --------*--------*--------*--------*--------*--------*--------*--------
+"Bundle 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_auto_colors = 0
+""colorscheme morning
+"" 奇数のインデント。いまは表示させない。
+""autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#262626 ctermbg=lightgrey
+"" 偶数インデントのカラー
+"" darkgrayもいいかも。2014/02/04
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgreen
+"" ハイライト色の変化の幅
+"let g:indent_guides_color_change_percent = 30
+"" ガイドの幅
+"let g:indent_guides_guide_size = 1
+"colorscheme elflord
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " ctags関連
