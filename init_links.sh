@@ -25,7 +25,7 @@ done
 
 if [ -f "/usr/bin/lsb_release" ]; then
   if lsb_release -d | grep Ubuntu; then
-    ln -sf $MY_HOME/.curlrc_ubuntu $MY_HOME/.curlrc
+    ln -sf $MY_HOME/.curlrc_ubuntu $HOME/.curlrc
   fi
 fi
 
