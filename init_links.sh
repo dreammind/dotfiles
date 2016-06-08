@@ -2,7 +2,7 @@
 
 MY_HOME=$(cd $(dirname $0) && pwd)
 
-DOT_FILES=".gemrc .vimrc .bashrc .ctags .screenrc .gitignore_global .vim/dict/php.dict"
+DOT_FILES=".curlrc_ubuntu .gemrc .vimrc .bashrc .ctags .screenrc .gitignore_global .vim/dict/php.dict"
 
 if [ ! -d "$HOME/.vim/dict" ]; then
   mkdir -p $HOME/.vim/dict
@@ -22,6 +22,12 @@ do
 
   fi
 done
+
+if [ -f "/usr/bin/lsb_release" ]; then
+  if lsb_release -d | grep Ubuntu; then
+    ln -sf $MY_HOME/.curlrc_ubuntu $MY_HOME/.curlrc
+  fi
+fi
 
 # vimのbundle
 if [ ! -d "$HOME/.vim/bundle" ]; then
