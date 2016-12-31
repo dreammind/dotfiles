@@ -1,18 +1,17 @@
 #!/bin/bash
 
-PACKAGES=""
-PACKAGES="vim vim-nox tig $PACKAGES"
-PACKAGES="autoconf automake $PACKAGES"
-PACKAGES="lv $PACKAGES"
-
-PACKAGES="dnsutils $PACKAGES"
-PACKAGES=" $PACKAGES"
-
-# already installed
-PACKAGES="python-rpi.gpio $PACKAGES"
+PACKAGES="\
+  vim vim-nox tig
+  autoconf automake
+  dnsutils
+  lv
+  python-rpi.gpio
+"
 
 for p in $PACKAGES
 do
-  echo sudo apt-get -y install $p
-  sudo apt-get -y install $p
+  if ! dpkg -l | grep $p > /dev/null; then
+    echo sudo apt-get -y install $p
+    sudo apt-get -y install $p
+  fi
 done
