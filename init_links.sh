@@ -8,6 +8,8 @@ if [ ! -d "$HOME/.vim/dict" ]; then
   mkdir -p $HOME/.vim/dict
 fi
 
+
+
 for file in $DOT_FILES
 do
   if [ -f "$MY_HOME/$file" ]; then
@@ -28,6 +30,10 @@ if [ -f "/usr/bin/lsb_release" ]; then
     ln -sf $MY_HOME/.curlrc_ubuntu $HOME/.curlrc
   fi
 fi
+
+# python pip
+[ ! -d "$HOME/.pip" ] && mkdir -p $HOME/.pip
+[ ! -h "$HOME/.pip/pip.conf" ] && ln -sf $MY_HOME/pip.conf $HOME/.pip/pip.conf
 
 # vimのbundle
 if [ ! -d "$HOME/.vim/bundle" ]; then

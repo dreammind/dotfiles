@@ -8,6 +8,9 @@ PACKAGES="lv $PACKAGES"
 PACKAGES="dnsutils $PACKAGES"
 PACKAGES=" $PACKAGES"
 
+# already installed
+PACKAGES="python-rpi.gpio $PACKAGES"
+
 for p in $PACKAGES
 do
   echo sudo apt-get -y install $p

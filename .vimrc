@@ -143,13 +143,19 @@ Bundle 'mru.vim'
 
 Bundle 'elzr/vim-json'
 
+" --------*--------*--------*--------*--------*--------*--------*--------
 Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 
 Bundle 'derekwyatt/vim-scala'
 
 Bundle 'Matt-Deacalion/vim-systemd-syntax'
 
 Bundle 'tfnico/vim-gradle'
+
+" --------*--------*--------*--------*--------*--------*--------*--------
+" python plugin
+Bundle 'davidhalter/jedi-vim.git'
 
 "" --------*--------*--------*--------*--------*--------*--------*--------
 " コピペに|が加わるとか、jsonの編集に支障をきたすので、indentLineは使わない
