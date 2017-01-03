@@ -28,6 +28,16 @@ if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
     #export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
     export JAVA_HOME=`/usr/libexec/java_home`
   fi
+
+  export LSCOLORS=gxfxcxdxbxegedabagacad
+  alias  ls='ls -GFh'
+fi
+
+if [ "$PS1" != "" ]; then
+  if [ "$(uname)" = "Linux" ]; then
+    eval `dircolors -b ~/.dircolors`
+    alias ls="ls --color=auto"
+  fi
 fi
 
 CDPATH=$HOME/ws
