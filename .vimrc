@@ -226,6 +226,10 @@ filetype plugin indent on     " required!
 " --------*--------*--------*--------*--------*--------*--------*--------
 " vimgrepの使い方
 " -------------
+" こういう形式の使えるよ
+"   :vim {pattern} app/**/*.rb
+"   :args ./**/*.html
+"
 " :args `git ls-files app config -x *.png`           
 " :args `find app -name '*.rb'`           
 "   -> これで##にgitで管理しているファイル一覧のappとconfigが格納される
@@ -236,9 +240,12 @@ filetype plugin indent on     " required!
 "   http://qiita.com/yuku_t/items/0c1aff03949cb1b8fe6b
 " :cw[indow]  -> vimgrep検索結果をしたのウィンドウで表示する
 "     (下記のQuickFixCmdPost)があるので不要。
-
 " :vimgrep実行後、quickfix-windowを開く
 autocmd QuickFixCmdPost *grep* cwindow
+
+" キーマップを追加. GはGrepの意味。
+nmap Gn :cnext<CR>
+nmap Gp :cprevious<CR>
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " カッコを入力すると、自動的に閉じカッコも挿入される。insertモードのままなので
@@ -270,7 +277,7 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType jade set omnifunc=jadecomplete#CompleteJade
 
 " ファイルタイプごとの設定
-" ts:tabstop, sw:shift width
+" ts:tabstop, sw:shift width, st=soft tab stop, 
 autocmd FileType c   set ts=2 sw=2 st=0 expandtab
 autocmd FileType cpp set ts=2 sw=2 st=0 expandtab
 autocmd FileType javascript set ts=2 sw=2 st=0 expandtab
