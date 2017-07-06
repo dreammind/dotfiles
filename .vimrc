@@ -154,10 +154,23 @@ Bundle 'Matt-Deacalion/vim-systemd-syntax'
 Bundle 'tfnico/vim-gradle'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
+" golang
+" vim-goは、:help vim-go にヘルプが記述
+Bundle 'fatih/vim-go'
+" nfs/gocodeは、最初に
+"   1)go get -u github.com/nsf/gocode
+"   2)vimから :GoInstallBinaries を実行
+" 補完の例) fmt. CTRL x o 
+" よく使うコマンドは
+" :GoFmt  :GoRun
+Bundle 'nsf/gocode', { 'rtp': 'vim/' }
+
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 " python plugin
 " キーマップ
 "   K カーソル上のメソッドのpydocを表示。便利1
-Bundle 'davidhalter/jedi-vim.git'
+"Bundle 'davidhalter/jedi-vim.git'
 
 "" --------*--------*--------*--------*--------*--------*--------*--------
 " コピペに|が加わるとか、jsonの編集に支障をきたすので、indentLineは使わない

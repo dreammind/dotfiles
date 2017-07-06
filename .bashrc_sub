@@ -19,8 +19,16 @@ if [ "$PS1" != "" ]; then
   PS1="@\h:[\W]\$(parse_git_branch)\$ "
 fi
 
-if [ -f "/usr/local/bin/ctags" ]; then
+if test -x "/usr/local/bin/ctags"; then
   alias   ctags='/usr/local/bin/ctags'
+fi
+
+if test -x "$(which go)"; then
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+  if ! test -d $GOPATH; then
+    mkdir -p $GOPATH
+  fi
 fi
 
 if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
@@ -39,6 +47,7 @@ if [ "$PS1" != "" ]; then
     alias ls="ls --color=auto"
   fi
 fi
+
 
 CDPATH=$HOME/ws
 
