@@ -61,6 +61,9 @@ map <silent> [Tag]p :tabprevious<CR>
 " --------*--------*--------*--------*--------*--------*--------*--------
 " ファイルの文字コードを自動認識
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-bom,default,latin
+set encoding=utf-8
+set fileformats=unix,dos,mac
+" --------*--------*--------*--------*--------*--------*--------*--------
 
 set nocompatible               " be iMproved
 filetype off                   " required!
