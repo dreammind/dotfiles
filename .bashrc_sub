@@ -23,7 +23,7 @@ if test -x "/usr/local/bin/ctags"; then
   alias   ctags='/usr/local/bin/ctags'
 fi
 
-if test -x "$(which go)"; then
+if test -x "$(which go 2>/dev/null)"; then
   export GOPATH=$HOME/.go
   export PATH=$PATH:$GOPATH/bin
   if ! test -d $GOPATH; then
