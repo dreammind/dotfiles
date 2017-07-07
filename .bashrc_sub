@@ -31,20 +31,20 @@ if test -x "$(which go)"; then
   fi
 fi
 
-if [ "$TERM_PROGRAM" = "Apple_Terminal" ]; then
+uname=$(uname)
+if [ "$uname" = "Darwin" ]; then
   if [ -f "/usr/libexec/java_home" ]; then
-    #export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
     export JAVA_HOME=`/usr/libexec/java_home`
   fi
-
-  export LSCOLORS=gxfxcxdxCxegedabagacad
-  alias  ls='ls -Gh'
 fi
 
 if [ "$PS1" != "" ]; then
-  if [ "$(uname)" = "Linux" ]; then
+  if [ "$uname" = "Linux" -o "$uname" = "CYGWIN_NT-6.1" ]; then
     eval `dircolors -b ~/.dircolors`
     alias ls="ls --color=auto"
+  elif [ "$uname" = "Darwin" ]; then
+    export LSCOLORS=gxfxcxdxCxegedabagacad
+    alias  ls='ls -Gh'
   fi
 fi
 
