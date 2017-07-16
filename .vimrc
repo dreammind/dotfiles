@@ -163,6 +163,8 @@ Bundle 'fatih/vim-go'
 " nfs/gocodeは、最初に
 "   1)go get -u github.com/nsf/gocode
 "   2)vimから :GoInstallBinaries を実行
+"   3)~/.vim/bundle/gocode/vim/update.sh
+"   4)~/.vim/bundle/gocode/vim/symlink.sh
 " 補完の例) fmt. CTRL x o 
 " よく使うコマンドは
 " :GoFmt  :GoRun
@@ -308,6 +310,8 @@ autocmd FileType yaml set ts=2 sw=2 st=0 expandtab
 autocmd FileType slim set ts=2 sw=2 st=0 expandtab
 autocmd FileType gradle set ts=2 sw=2 st=0 expandtab
 autocmd FileType python set ts=4 sw=4 st=4 expandtab
+
+autocmd FileType go set ts=2 sw=2 st=2
 
 " .slimでうまくハイライトできない時、
 " :setfiletype slimとすればハイライトされる。
