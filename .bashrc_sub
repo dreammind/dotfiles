@@ -23,6 +23,10 @@ if test -x "/usr/local/bin/ctags"; then
   alias   ctags='/usr/local/bin/ctags'
 fi
 
+if test -x "/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"; then
+  export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
+fi
+
 if test -x "$(which go 2>/dev/null)"; then
   export GOPATH=$HOME/.go
   export PATH=$PATH:$GOPATH/bin
