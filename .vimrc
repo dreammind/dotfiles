@@ -142,7 +142,8 @@ Bundle 'GutenYe/json5.vim'
 " 最近開いたファイルの履歴管理ができます
 " :MRU ファイルリストを表示
 "   Enter カーソル上のファイルを開く
-Bundle 'mru.vim'
+"   CTRLPのCtrl-MRUFilesに乗り換えてみる。
+"Bundle 'mru.vim'
 
 Bundle 'elzr/vim-json'
 
@@ -157,6 +158,14 @@ Bundle 'Matt-Deacalion/vim-systemd-syntax'
 Bundle 'tfnico/vim-gradle'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
+"  多機能なファイルセレクター
+"  1) ファイルの検索開始 CTRL-P
+Bundle 'ctrlpvim/ctrlp.vim'
+
+" 以前開いたファイルの履歴から検索
+nmap Pm :<C-u>CtrlPMRUFiles<CR>
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 " golang
 " vim-goは、:help vim-go にヘルプが記述
 Bundle 'fatih/vim-go'
@@ -169,6 +178,9 @@ Bundle 'fatih/vim-go'
 " よく使うコマンドは
 " :GoFmt  :GoRun
 Bundle 'nsf/gocode', { 'rtp': 'vim/' }
+" 1)ソースコードにジャンプ CTRL-] か gd
+"   fmt.Printfにカーソルを持っていき、CTRL-] で定義にジャンプ。:GoDef と同じ
+"   戻るときはCTRL-t
 
 
 " --------*--------*--------*--------*--------*--------*--------*--------
