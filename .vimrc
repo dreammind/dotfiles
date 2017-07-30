@@ -204,6 +204,9 @@ Bundle 'nsf/gocode', { 'rtp': 'vim/' }
 "   fmt.Printfにカーソルを持っていき、CTRL-] で定義にジャンプ。:GoDef と同じ
 "   戻るときはCTRL-t
 "
+" disable fmt on save
+let g:go_fmt_autosave = 0
+
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
