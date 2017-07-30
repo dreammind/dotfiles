@@ -1,13 +1,23 @@
 " --------*--------*--------*--------*--------*--------*--------*--------
 " ミニヘルプ
-"   CTRL-o  前回のジャンプ位置に戻る
-"   CTRL-i  次回のジャンプ位置に進む
-"   CTRL-t  戻る
+"   <C-o>      前回のジャンプ位置に戻る
+"   <C-i>      次回のジャンプ位置に進む
+"   <C-t>      戻る
+"   <C-p>      ファイルを選択するctrlpプラグイン
+"   Pm         以前開いたファイル履歴から検索
+"   Y          一行ヤンク
+"   yw         一単語をヤンクバッファに入れる
+"   <Leader>m  MRU
+"   <Leader>s  シンタックスチェック
+"   <Leader>w  ファイル書き込み
+
 " [python]
 "   K          カーソル上のメソッドのpydocを表示。便利1
 "   <Leader>d  定義にジャンプ
+
 " [golang]
 "   .<C-x> <C-o> 補完
+"   <Leader>w  ファイル書き込み
 "   <C-]>       定義にジャンプ(:GoDef)
 "   <Leader>d   定義を分割ウィンドウで表示
 "   <Leader>b   ビルド
@@ -18,6 +28,8 @@
 " ,w でファイル書き込み。
 let mapleader = ","
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>s :SyntasticCheck<CR>
+nnoremap <Leader>m :MRU<CR>
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " http://itchyny.hatenablog.com/entry/2014/12/25/090000
@@ -37,13 +49,6 @@ set matchtime=1
 nnoremap Y y$
 " 一行が長すぎても表示される
 set display=lastline
-" --------*--------*--------*--------*--------*--------*--------*--------
-"  TIPS
-" g; 前に変更した位置へカーソルを移動する
-" :grep -R foo directory  
-"   directory以下でfooを検索して、別ウィンドウを下に開いてくれて、ジャンプできる。
-" yw 単語をYankバッファに入れる。
-" b 単語の先頭に移動
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "" netrwは常にtree view
@@ -78,24 +83,26 @@ map <silent> [Tag]p :tabprevious<CR>
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-bom,default,latin
 set encoding=utf-8
 set fileformats=unix,dos,mac
-" --------*--------*--------*--------*--------*--------*--------*--------
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+"  Vundle
+"  :PluginInstall! プラグインをインストールする。
 set nocompatible               " be iMproved
 filetype off                   " required!
 set modeline
 
 " 色付けon -> 下に移動。
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " 究極のvim的補完環境
 " <C-x><C-k>するとsnippetsで補完される
-Bundle 'Shougo/neocomplcache.git'
-Bundle 'Shougo/neosnippet-snippets.git'
+Plugin 'Shougo/neocomplcache.git'
+Plugin 'Shougo/neosnippet-snippets.git'
 
 let g:neocomplcache_enable_at_startup = 1
 "let g:neocomplcache_enable_smart_case = 1
@@ -120,63 +127,70 @@ imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 
 " --------*--------*--------*--------*--------*--------*--------*--------
-
-" javascriptを利用する場合、jshint/jslintのインストールが必須。jslintが良いよさげ
-" Better Javascript Indentation
-Bundle 'pangloss/vim-javascript'
-
-" jQuery
-Bundle 'jQuery'
-
-"SQLUtilities : SQL整形、生成ユーティリティ
-Bundle 'SQLUtilities'
-
-" --------*--------*--------*--------*--------*--------*--------*--------
-" Ruby, Rails etc
-Bundle 'vim-ruby/vim-ruby'
-
-" :Emodel モデル名, :Eview ビュー名, :Econtroller コントローラ名
-" gf は、
-" :A でrspecとの行き来ができる
-" :R でdb/schemaとの行き来ができる
-Bundle 'tpope/vim-rails'
-
-Bundle 'slim-template/vim-slim'
-
-" rspecのシンタックスハイライト
-"Bundle 'Keithbsmiley/rspec.vim'
-Bundle 'Keith/rspec.vim'
-
-" --------*--------*--------*--------*--------*--------*--------*--------
-Bundle 'digitaltoad/vim-jade'
-
-Bundle 'GutenYe/json5.vim'
-
-" 最近開いたファイルの履歴管理ができます
+" 最近開いたファイルの履歴管理
 " :MRU ファイルリストを表示
 "   Enter カーソル上のファイルを開く
-"   CTRLPのCtrl-MRUFilesに乗り換えてみる。
-Bundle 'mru.vim'
+Plugin 'mru.vim'
 
-Bundle 'elzr/vim-json'
-
-" --------*--------*--------*--------*--------*--------*--------*--------
-Bundle 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled = 1
-
-Bundle 'derekwyatt/vim-scala'
-
-Bundle 'Matt-Deacalion/vim-systemd-syntax'
-
-Bundle 'tfnico/vim-gradle'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  多機能なファイルセレクター
 "  1) ファイルの検索開始 CTRL-P
-Bundle 'ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
+let g:ctrlp_map = '<C-p>'
 " 以前開いたファイルの履歴から検索
 nmap Pm :<C-u>CtrlPMRUFiles<CR>
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+
+" --------*--------*--------*--------*--------*--------*--------*--------
+"  言語関連
+"
+Plugin 'vim-ruby/vim-ruby'
+
+" javascriptを利用する場合、jshint/jslintのインストールが必須。jslintがよさげ
+" Better Javascript Indentation
+Plugin 'pangloss/vim-javascript'
+
+" jQuery
+Plugin 'jQuery'
+
+"SQLUtilities : SQL整形、生成ユーティリティ
+Plugin 'SQLUtilities'
+" :Emodel モデル名, :Eview ビュー名, :Econtroller コントローラ名
+" gf は、
+" :A でrspecとの行き来ができる
+" :R でdb/schemaとの行き来ができる
+Plugin 'tpope/vim-rails'
+
+Plugin 'digitaltoad/vim-jade'
+
+Plugin 'elzr/vim-json'
+Plugin 'GutenYe/json5.vim'
+
+
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
+
+Plugin 'derekwyatt/vim-scala'
+
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+
+Plugin 'tfnico/vim-gradle'
+
+" rspecのシンタックスハイライト
+Plugin 'Keith/rspec.vim'
+
+Plugin 'slim-template/vim-slim'
+
+" --------*--------*--------*--------*--------*--------*--------*--------
+" python plugin
+"   http://qiita.com/tekkoc/items/923d7a7cf124e63adab5
+" キーマップ
+"   K カーソル上のメソッドのpydocを表示。便利
+Plugin 'davidhalter/jedi-vim.git'
+
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " golang
@@ -193,17 +207,15 @@ nmap Pm :<C-u>CtrlPMRUFiles<CR>
 "   <Leader>r   実行
 " よく使うコマンドは
 " :GoFmt  :GoRun
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
+
 " nfs/gocodeは、最初に
 "   1)go get -u github.com/nsf/gocode
 "   2)vimから :GoInstallBinaries を実行
 "   3)~/.vim/bundle/gocode/vim/update.sh
 "   4)~/.vim/bundle/gocode/vim/symlink.sh
-Bundle 'nsf/gocode', { 'rtp': 'vim/' }
-" 1)ソースコードにジャンプ CTRL-] か gd
-"   fmt.Printfにカーソルを持っていき、CTRL-] で定義にジャンプ。:GoDef と同じ
-"   戻るときはCTRL-t
-"
+Plugin 'nsf/gocode', { 'rtp': 'vim/' }
+
 " disable fmt on save
 let g:go_fmt_autosave = 0
 
@@ -213,6 +225,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" --------*--------*--------*--------*--------*--------*--------*--------
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>s  <Plug>(go-implements)
 autocmd FileType go nmap <Leader>d  <Plug>(go-def-split)
@@ -221,21 +234,7 @@ autocmd FileType go nmap <Leader>r  <Plug>(go-run)
 autocmd FileType go set ts=2 sw=2 st=2
 
 " --------*--------*--------*--------*--------*--------*--------*--------
-" python plugin
-"   http://qiita.com/tekkoc/items/923d7a7cf124e63adab5
-" キーマップ
-"   K カーソル上のメソッドのpydocを表示。便利
-Bundle 'davidhalter/jedi-vim.git'
-
-"" --------*--------*--------*--------*--------*--------*--------*--------
-" コピペに|が加わるとか、jsonの編集に支障をきたすので、indentLineは使わない
-""  :IndentLineDisableでDisableにできる。
-"Bundle 'Yggdroot/indentLine'
-"
-"" --------*--------*--------*--------*--------*--------*--------*--------
-
-" --------*--------*--------*--------*--------*--------*--------*--------
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors = 0
 "colorscheme morning
@@ -264,7 +263,7 @@ let g:tlist_javascript_settings = 'javascript;c:class;m:method;f:function;p:prop
 "    Bm ブックマークする/しないのトグル
 "    Ba すべてのブックマークを表示する
 "    Bx すべてのブックマークをクリアする
-Bundle 'MattesGroeger/vim-bookmarks'
+Plugin 'MattesGroeger/vim-bookmarks'
 let g:bookmark_no_default_key_mappings = 1
 
 nmap Bm :BookmarkToggle<CR>
@@ -288,8 +287,6 @@ let g:bookmark_auto_close = 1
 "let g:netrw_alto = 1
 
 
-" --------*--------*--------*--------*--------*--------*--------*--------
-filetype plugin indent on     " required!
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " vimgrepの使い方
@@ -318,29 +315,32 @@ nmap Gp :cprevious<CR>
 " --------*--------*--------*--------*--------*--------*--------*--------
 " カッコを入力すると、自動的に閉じカッコも挿入される。insertモードのままなので
 " 便利。不要なESCを何度も入力しないといけないので、使わないようにした。
-"Bundle 'Townk/vim-autoclose'
+"Plugin 'Townk/vim-autoclose'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  editorconfigは複数のエディタ間で共通のインデントやエンコーディング
 "  を共有化できる。
 " カレントディレクトリの.editorconfigを読み込む
-Bundle 'editorconfig/editorconfig-vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  多言語シンタックスチェック
-"   passive_filetypesに登録していると、
-"     :SyntasticCheckすると、シンタックスチェックする
-"     :SyntasticToggleModeでOffされる。
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
-                           \ 'active_filetypes': [ 'sh', 'python' ],
-                           \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php', 'json', 'md', 'yaml', 'slim', 'python'] }
+    \ 'active_filetypes': [ ],
+    \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php', 'json', 'md', 'yaml', 'slim', 'python', 'sh'] }
 
-"エラー時、Quickfixが起動する-> しないようにした。
-"let g:syntastic_auto_loc_list = 1	
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['pylint']
 
+" ファイルセーブ時に自動的にシンタックスチェックしない
+let g:syntastic_check_on_wq = 0
+
+
+" --------*--------*--------*--------*--------*--------*--------*--------
+"  Vundle.vimの終端
+call vundle#end()		" required!
+filetype plugin indent on     	" required!
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "

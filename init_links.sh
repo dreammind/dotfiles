@@ -34,11 +34,12 @@ fi
 [ ! -h "$HOME/.pip/pip.conf" ] && ln -sf $MY_HOME/pip.conf $HOME/.pip/pip.conf
 
 # vimのbundle
-if [ ! -d "$HOME/.vim/bundle" ]; then
-  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 else
-  (cd $HOME/.vim/bundle/vundle; git pull --rebase)
+  (cd $HOME/.vim/bundle/Vundle.vim; git pull --rebase)
 fi
+vim +PluginInstall +qall
 
 if ! which pylint > /dev/null; then
   pip3 install pylint
