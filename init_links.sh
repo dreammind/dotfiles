@@ -2,13 +2,11 @@
 
 MY_HOME=$(cd $(dirname $0) && pwd)
 
-DOT_FILES=".dircolors .curlrc_ubuntu .gemrc .vimrc .bashrc .ctags .screenrc .gitignore_global .vim/dict/php.dict"
+DOT_FILES=".dircolors .curlrc_ubuntu .gemrc .vimrc .bashrc .ctags .screenrc .gitignore_global .vim/dict/php.dict .pylintrc"
 
 if [ ! -d "$HOME/.vim/dict" ]; then
   mkdir -p $HOME/.vim/dict
 fi
-
-
 
 for file in $DOT_FILES
 do
@@ -42,7 +40,10 @@ else
   (cd $HOME/.vim/bundle/vundle; git pull --rebase)
 fi
 
-grep "source $MY_HOME/.bashrc_sub" $HOME/.bashrc
-if [ $? != 0 ]; then
+if ! which pylint > /dev/null; then
+  pip3 install pylint
+fi
+
+if grep "source $MY_HOME/.bashrc_sub" $HOME/.bashrc; then
   echo "source $MY_HOME/.bashrc_sub" >> $HOME/.bashrc
 fi
