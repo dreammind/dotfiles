@@ -1,8 +1,23 @@
 " --------*--------*--------*--------*--------*--------*--------*--------
-"  移動に関するメモ
-"  CTRL-o  前回のジャンプ位置に戻る
-"  CTRL-i  次回のジャンプ位置に進む
+" ミニヘルプ
+"   CTRL-o  前回のジャンプ位置に戻る
+"   CTRL-i  次回のジャンプ位置に進む
+"   CTRL-t  戻る
+" [python]
+"   K          カーソル上のメソッドのpydocを表示。便利1
+"   <Leader>d  定義にジャンプ
+" [golang]
+"   .<C-x> <C-o> 補完
+"   <C-]>       定義にジャンプ(:GoDef)
+"   <Leader>d   定義を分割ウィンドウで表示
+"   <Leader>b   ビルド
+"   <Leader>r   実行
 
+" TODO テスト中
+" http://postd.cc/how-to-boost-your-vim-productivity/
+" ,w でファイル書き込み。
+let mapleader = ","
+nnoremap <Leader>w :w<CR>
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " http://itchyny.hatenablog.com/entry/2014/12/25/090000
@@ -105,10 +120,8 @@ imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 
 " --------*--------*--------*--------*--------*--------*--------*--------
-" シンタックスチェック
-" javascriptを利用する場合、jshint/jslintのインストールが必須。jslintが良いよさげ
-Bundle 'scrooloose/syntastic'
 
+" javascriptを利用する場合、jshint/jslintのインストールが必須。jslintが良いよさげ
 " Better Javascript Indentation
 Bundle 'pangloss/vim-javascript'
 
@@ -143,7 +156,7 @@ Bundle 'GutenYe/json5.vim'
 " :MRU ファイルリストを表示
 "   Enter カーソル上のファイルを開く
 "   CTRLPのCtrl-MRUFilesに乗り換えてみる。
-"Bundle 'mru.vim'
+Bundle 'mru.vim'
 
 Bundle 'elzr/vim-json'
 
@@ -168,26 +181,48 @@ nmap Pm :<C-u>CtrlPMRUFiles<CR>
 " --------*--------*--------*--------*--------*--------*--------*--------
 " golang
 " vim-goは、:help vim-go にヘルプが記述
+" [注意]
+"   1)ファイル書き込み時に自動的にformatが掛かるようだ
+"   2)githubからダウンロードしたパッケージでは補完ができない
+"     http://qiita.com/koara-local/items/6c886eccfb459159c431
+"
+"   .<C-x> <C-o> 補完
+"   <C-]>       定義にジャンプ(:GoDef)
+"   <Leader>d   定義を分割ウィンドウで表示
+"   <Leader>b   ビルド
+"   <Leader>r   実行
+" よく使うコマンドは
+" :GoFmt  :GoRun
 Bundle 'fatih/vim-go'
 " nfs/gocodeは、最初に
 "   1)go get -u github.com/nsf/gocode
 "   2)vimから :GoInstallBinaries を実行
 "   3)~/.vim/bundle/gocode/vim/update.sh
 "   4)~/.vim/bundle/gocode/vim/symlink.sh
-" 補完の例) fmt. CTRL x o 
-" よく使うコマンドは
-" :GoFmt  :GoRun
 Bundle 'nsf/gocode', { 'rtp': 'vim/' }
 " 1)ソースコードにジャンプ CTRL-] か gd
 "   fmt.Printfにカーソルを持っていき、CTRL-] で定義にジャンプ。:GoDef と同じ
 "   戻るときはCTRL-t
+"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
+autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <Leader>s  <Plug>(go-implements)
+autocmd FileType go nmap <Leader>d  <Plug>(go-def-split)
+autocmd FileType go nmap <Leader>b  <Plug>(go-build)
+autocmd FileType go nmap <Leader>r  <Plug>(go-run)
+autocmd FileType go set ts=2 sw=2 st=2
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " python plugin
+"   http://qiita.com/tekkoc/items/923d7a7cf124e63adab5
 " キーマップ
-"   K カーソル上のメソッドのpydocを表示。便利1
-"Bundle 'davidhalter/jedi-vim.git'
+"   K カーソル上のメソッドのpydocを表示。便利
+Bundle 'davidhalter/jedi-vim.git'
 
 "" --------*--------*--------*--------*--------*--------*--------*--------
 " コピペに|が加わるとか、jsonの編集に支障をきたすので、indentLineは使わない
@@ -289,16 +324,22 @@ nmap Gp :cprevious<CR>
 Bundle 'editorconfig/editorconfig-vim'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
-" passive_filetypesに登録していると、:SyntasticCheckすると、シンタックスチェックする
-" :SyntasticToggleModeでOffされる。
+"  多言語シンタックスチェック
+"   passive_filetypesに登録していると、
+"     :SyntasticCheckすると、シンタックスチェックする
+"     :SyntasticToggleModeでOffされる。
+Bundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php', 'json', 'md', 'yaml', 'slim'] }
+                           \ 'active_filetypes': [ 'sh', 'python' ],
+                           \ 'passive_filetypes': ['javascript', 'c', 'cpp', 'cc', 'erb', 'rb', 'jade', 'php', 'json', 'md', 'yaml', 'slim', 'python'] }
 
-"エラー時、Quickfixが起動する
-let g:syntastic_auto_loc_list = 1	
-let g:syntastic_javascript_checker = 'jshint'
+"エラー時、Quickfixが起動する-> しないようにした。
+"let g:syntastic_auto_loc_list = 1	
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = ['pylint']
 
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 "
 autocmd FileType javascript set omnifunc=jscomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -323,7 +364,6 @@ autocmd FileType slim set ts=2 sw=2 st=0 expandtab
 autocmd FileType gradle set ts=2 sw=2 st=0 expandtab
 autocmd FileType python set ts=4 sw=4 st=4 expandtab
 
-autocmd FileType go set ts=2 sw=2 st=2
 
 " .slimでうまくハイライトできない時、
 " :setfiletype slimとすればハイライトされる。
