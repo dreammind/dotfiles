@@ -44,6 +44,6 @@ if ! which pylint > /dev/null; then
   pip3 install pylint
 fi
 
-if grep "source $MY_HOME/.bashrc_sub" $HOME/.bashrc; then
+if ! grep ".bashrc_sub" $HOME/.bashrc; then
   echo "source $MY_HOME/.bashrc_sub" >> $HOME/.bashrc
 fi
