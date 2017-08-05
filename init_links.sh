@@ -26,11 +26,11 @@ done
 
 uname=$(uname)
 if test -f /etc/issue; then
-  if grep -i ubuntu /etc/issue; then
+  if grep -i ubuntu /etc/issue > /dev/null; then
     uname="Ubuntu"
-  elif grep -i CentOS /etc/issue; then
+  elif grep -i CentOS /etc/issue > /dev/null; then
     uname="CentOS"
-  elif grep -i Redhat /etc/issue; then
+  elif grep -i Redhat /etc/issue > /dev/null; then
     uname="RedHat"
   fi
 fi
@@ -67,6 +67,6 @@ if ! which pylint > /dev/null; then
   pip3 install pylint
 fi
 
-if ! grep ".bashrc_sub" $HOME/.bashrc; then
+if ! grep ".bashrc_sub" $HOME/.bashrc > /dev/null; then
   echo "source $MY_HOME/.bashrc_sub" >> $HOME/.bashrc
 fi
