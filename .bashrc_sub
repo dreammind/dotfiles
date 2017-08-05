@@ -47,7 +47,10 @@ fi
 if test -x "$(which autojump 2>/dev/null)"; then
   if [  "$uname" = "Darwin" ]; then
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+  elif test -f /usr/share/autojump/autojump.bash; then
+    . /usr/share/autojump/autojump.bash
   fi
+
   if [ "$PS1" != "" ]; then
     echo "Please use autojump. j dir"
   fi
