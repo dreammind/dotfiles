@@ -2,6 +2,7 @@
 
 MY_HOME=$(cd $(dirname $0) && pwd)
 
+
 DOT_FILES=".dircolors .curlrc_ubuntu .gemrc .vimrc .bashrc .ctags .screenrc .gitignore_global .vim/dict/php.dict .pylintrc"
 
 if [ ! -d "$HOME/.vim/dict" ]; then
@@ -23,11 +24,32 @@ do
   fi
 done
 
-if [ -f "/usr/bin/lsb_release" ]; then
-  if lsb_release -d | grep Ubuntu; then
-    ln -sf $MY_HOME/.curlrc_ubuntu $HOME/.curlrc
+uname=$(uname)
+if test -f /etc/issue; then
+  if grep -i ubuntu /etc/issue; then
+    uname="Ubuntu"
+  elif grep -i CentOS /etc/issue; then
+    uname="CentOS"
+  elif grep -i Redhat /etc/issue; then
+    uname="RedHat"
   fi
 fi
+
+if [ "$uname" = "Ubuntu" ]; then
+  ln -sf $MY_HOME/.curlrc_ubuntu $HOME/.curlrc
+fi
+
+# autojump
+if ! which autojump 2>/dev/null; then
+  if [ "$uname" = "Darwin" ]; then
+    brew install autojump
+  elif [ "$uname" = "Ubuntu" ]; then
+    sudo apt-get -y install autojump
+  elif [ "$uname" = "CentOS" || "$uname" = "RedHat" ]; then
+    sudo yum -y install autojump
+  fi
+fi
+
 
 # python pip
 [ ! -d "$HOME/.pip" ] && mkdir -p $HOME/.pip
