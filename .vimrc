@@ -2,6 +2,7 @@
 " ミニヘルプ
 "   <C-o>      前回のジャンプ位置に戻る
 "   <C-i>      次回のジャンプ位置に進む
+"   <C-]>      タグジャンプ
 "   <C-t>      戻る
 "   <C-p>      ファイルを選択するctrlpプラグイン
 "   Pm         以前開いたファイル履歴から検索
@@ -10,9 +11,14 @@
 "   <Leader>m  MRU
 "   <Leader>s  シンタックスチェック
 "   <Leader>w  ファイル書き込み
+"   <Leader>q  quit
+"   V          行単位のビジュアルモード
+"   <C-v>      矩形単位のビジュアルモード
+"              y でヤンクできる
+
 
 " [python]
-"   K          カーソル上のメソッドのpydocを表示。便利1
+"   K          カーソル上のメソッドのpydocを表示。便利
 "   <Leader>d  定義にジャンプ
 
 " [golang]
@@ -23,11 +29,11 @@
 "   <Leader>b   ビルド
 "   <Leader>r   実行
 
-" TODO テスト中
 " http://postd.cc/how-to-boost-your-vim-productivity/
 " ,w でファイル書き込み。
 let mapleader = ","
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 nnoremap <Leader>s :SyntasticCheck<CR>
 nnoremap <Leader>m :MRU<CR>
 
