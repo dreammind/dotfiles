@@ -46,7 +46,9 @@ fi
 
 if test -x "$(which autojump 2>/dev/null)"; then
   if [  "$uname" = "Darwin" ]; then
-    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+    if test -f /usr/local/etc/profile.d/autojump.sh; then
+      . /usr/local/etc/profile.d/autojump.sh
+    fi
   elif test -f /usr/share/autojump/autojump.bash; then
     . /usr/share/autojump/autojump.bash
   fi
