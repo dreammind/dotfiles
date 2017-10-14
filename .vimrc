@@ -278,9 +278,12 @@ nmap Bn :BookmarkNext<CR>
 nmap Bp :BookmarkPrev<CR>
 nmap Bx :BookmarkClearAll<CR>
 
-let g:bookmark_manage_per_buffer = 1
+" ブックマークをグローバルにしてみた 2017/08/15
+let g:bookmark_save_per_working_dir = 0
 let g:bookmark_auto_save = 1
-let g:bookmark_save_per_working_dir = 1
+" let g:bookmark_save_per_working_dir = 1
+" let g:bookmark_manage_per_buffer = 1
+" let g:bookmark_auto_save = 1
 let g:bookmark_auto_close = 1
 
 " --------*--------*--------*--------*--------*--------*--------*--------
