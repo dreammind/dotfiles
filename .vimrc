@@ -232,6 +232,14 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " --------*--------*--------*--------*--------*--------*--------*--------
+" vue.js
+Plugin 'posva/vim-vue'
+
+" --------*--------*--------*--------*--------*--------*--------*--------
+"  aceはslimやjadeのgolang版
+Plugin 'yosssi/vim-ace'
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>s  <Plug>(go-implements)
 autocmd FileType go nmap <Leader>d  <Plug>(go-def-split)
@@ -361,20 +369,25 @@ autocmd FileType jade set omnifunc=jadecomplete#CompleteJade
 
 " ファイルタイプごとの設定
 " ts:tabstop, sw:shift width, st=soft tab stop, 
-autocmd FileType c   set ts=2 sw=2 st=0 expandtab
-autocmd FileType cpp set ts=2 sw=2 st=0 expandtab
-autocmd FileType javascript set ts=2 sw=2 st=0 expandtab
-autocmd FileType html set ts=2 sw=2 st=0 expandtab
-autocmd FileType ruby set ts=2 sw=2 st=0 expandtab
-autocmd FileType sh  set ts=2 sw=2 st=0 expandtab
-autocmd FileType xml set ts=2 sw=2 st=0 expandtab
-autocmd FileType php set ts=4 sw=4 st=0 expandtab dictionary=~/.vim/dict/php.dict
-autocmd FileType jade set ts=2 sw=2 st=0 expandtab
-autocmd FileType json set ts=2 sw=2 st=0 expandtab
-autocmd FileType yaml set ts=2 sw=2 st=0 expandtab
-autocmd FileType slim set ts=2 sw=2 st=0 expandtab
-autocmd FileType gradle set ts=2 sw=2 st=0 expandtab
+autocmd FileType c   set ts=2 sw=2 st=2 expandtab
+autocmd FileType cpp set ts=2 sw=2 st=2 expandtab
+autocmd FileType javascript set ts=2 sw=2 st=2 expandtab
+autocmd FileType html set ts=2 sw=2 st=2 expandtab
+autocmd FileType ruby set ts=2 sw=2 st=2 expandtab
+autocmd FileType sh  set ts=2 sw=2 st=2 expandtab
+autocmd FileType xml set ts=2 sw=2 st=2 expandtab
+autocmd FileType php set ts=4 sw=4 st=2 expandtab dictionary=~/.vim/dict/php.dict
+autocmd FileType go set ts=2 sw=2 st=2 expandtab
+autocmd FileType jade set ts=2 sw=2 st=2 expandtab
+autocmd FileType slim set ts=2 sw=2 st=2 expandtab
+autocmd FileType ace set ts=2 sw=2 st=2 expandtab
+
+autocmd FileType json set ts=2 sw=2 st=2 expandtab
+autocmd FileType yaml set ts=2 sw=2 st=2 expandtab
+autocmd FileType gradle set ts=2 sw=2 st=2 expandtab
 autocmd FileType python set ts=4 sw=4 st=4 expandtab
+autocmd FileType vue set ts=2 sw=2 st=2 expandtab
+autocmd FileType markdown set ts=2 sw=2 st=2 expandtab
 
 
 " .slimでうまくハイライトできない時、
