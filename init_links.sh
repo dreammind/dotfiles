@@ -63,8 +63,10 @@ else
 fi
 vim +PluginInstall +qall
 
-if ! which pylint > /dev/null; then
-  pip3 install pylint
+if which pip3 > /dev/null; then
+  if ! which pylint > /dev/null; then
+    pip3 install pylint
+  fi
 fi
 
 if ! grep ".bashrc_sub" $HOME/.bashrc > /dev/null; then
