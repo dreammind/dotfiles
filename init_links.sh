@@ -63,6 +63,17 @@ else
 fi
 vim +PluginInstall +qall
 
+#
+# golang
+#
+if which go > /dev/null 2>&1; then
+  go get -u github.com/nsf/gocode
+  go get -u github.com/davidrjenni/reftools/cmd/fillstruct
+  vim +GoInstallBinaries +qall
+  ~/.vim/bundle/gocode/vim/update.sh
+  ~/.vim/bundle/gocode/vim/symlink.sh
+fi
+
 if which pip3 > /dev/null; then
   if ! which pylint > /dev/null; then
     pip3 install pylint

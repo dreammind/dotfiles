@@ -15,6 +15,7 @@
 "   V          行単位のビジュアルモード
 "   <C-v>      矩形単位のビジュアルモード
 "              y でヤンクできる
+"              I 矩形で文字挿入
 
 
 " [python]
@@ -217,9 +218,10 @@ Plugin 'fatih/vim-go'
 
 " nfs/gocodeは、最初に
 "   1)go get -u github.com/nsf/gocode
-"   2)vimから :GoInstallBinaries を実行
-"   3)~/.vim/bundle/gocode/vim/update.sh
-"   4)~/.vim/bundle/gocode/vim/symlink.sh
+"   2)go get -u github.com/davidrjenni/reftools/cmd/fillstruct
+"   3)vimから :GoInstallBinaries を実行
+"   4)~/.vim/bundle/gocode/vim/update.sh
+"   5)~/.vim/bundle/gocode/vim/symlink.sh
 Plugin 'nsf/gocode', { 'rtp': 'vim/' }
 
 " disable fmt on save
