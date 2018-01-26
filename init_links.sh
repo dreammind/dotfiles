@@ -23,6 +23,7 @@ do
 
   fi
 done
+source ~/.bashrc
 
 uname=$(uname)
 if test -f /etc/issue; then
@@ -65,7 +66,6 @@ vim +PluginInstall +qall
 
 #
 # golang
-#
 if which go > /dev/null 2>&1; then
   go get -u github.com/nsf/gocode
   go get -u github.com/davidrjenni/reftools/cmd/fillstruct
