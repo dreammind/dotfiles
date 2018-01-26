@@ -24,7 +24,6 @@
 
 " [golang]
 "   .<C-x> <C-o> 補完
-"   <Leader>w  ファイル書き込み
 "   <C-]>       定義にジャンプ(:GoDef)
 "   <Leader>d   定義を分割ウィンドウで表示
 "   <Leader>b   ビルド
@@ -190,6 +189,8 @@ Plugin 'tfnico/vim-gradle'
 Plugin 'Keith/rspec.vim'
 
 Plugin 'slim-template/vim-slim'
+
+Plugin 'uarun/vim-protobuf'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " python plugin
@@ -390,6 +391,7 @@ autocmd FileType gradle set ts=2 sw=2 st=2 expandtab
 autocmd FileType python set ts=4 sw=4 st=4 expandtab
 autocmd FileType vue set ts=2 sw=2 st=2 expandtab
 autocmd FileType markdown set ts=2 sw=2 st=2 expandtab
+autocmd FileType protobuf set ts=2 sw=2 st=2 expandtab
 
 
 " .slimでうまくハイライトできない時、
