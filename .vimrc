@@ -380,7 +380,7 @@ autocmd FileType ruby set ts=2 sw=2 st=2 expandtab
 autocmd FileType sh  set ts=2 sw=2 st=2 expandtab
 autocmd FileType xml set ts=2 sw=2 st=2 expandtab
 autocmd FileType php set ts=4 sw=4 st=2 expandtab dictionary=~/.vim/dict/php.dict
-autocmd FileType go set ts=2 sw=2 st=2 expandtab
+autocmd FileType go set ts=2 sw=2 st=2
 autocmd FileType jade set ts=2 sw=2 st=2 expandtab
 autocmd FileType slim set ts=2 sw=2 st=2 expandtab
 autocmd FileType ace set ts=2 sw=2 st=2 expandtab
