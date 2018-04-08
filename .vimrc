@@ -243,6 +243,11 @@ Plugin 'posva/vim-vue'
 Plugin 'yosssi/vim-ace'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
+"  
+"
+Plugin 'leafgarland/typescript-vim'
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
 autocmd FileType go nmap <Leader>s  <Plug>(go-implements)
 autocmd FileType go nmap <Leader>d  <Plug>(go-def-split)
@@ -318,6 +323,10 @@ let g:bookmark_auto_close = 1
 " :args `git ls-files app config -x *.png`           
 " :args `find app -name '*.rb'`           
 "   -> これで##にgitで管理しているファイル一覧のappとconfigが格納される
+" :args `git ls-files '*.go'`
+"   -> git管理下なら、go関連のファイルだけを対象にするなら
+" :args `find . -type d -name 'vendor' -prune -o -name '*.go' -print`
+"
 " :vim[grep] {pattern} ##
 "   -> vimgrepで検索し、結果をウィンドウ(cw)で表示
 " :cn[ext]  -> 次の検索結果へ
