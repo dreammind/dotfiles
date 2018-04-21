@@ -13,7 +13,7 @@ uname=$(uname)
 if test -f /etc/issue; then
   if grep -i ubuntu /etc/issue > /dev/null; then
     uname="Ubuntu"
-  elif grep -i CentOS /etc/issue > /dev/null; then
+  elif grep -i CentOS /etc/redhat-release > /dev/null; then
     uname="CentOS"
   elif grep -i Redhat /etc/issue > /dev/null; then
     uname="RedHat"
