@@ -175,9 +175,26 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'elzr/vim-json'
 Plugin 'GutenYe/json5.vim'
 
-
+" tabularで表の整形をするのが便利
+" ex)
+"   a, b,c
+"   ddd, eee, fff
+"   :Tabulaize /,/
+"   -> 結果 
+"   a   , b   , c
+"   ddd , eee , fff
+" ex2)
+"    |a|b|c|
+"    |ddd|eee|fff|
+"    :Tabularize /|/
+"    | a   | b   | c   |
+"    | ddd | eee | fff |
+" The tabular plugin must come before vim-markdown
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 2 
 
 Plugin 'derekwyatt/vim-scala'
 
