@@ -3,6 +3,7 @@
 
 # 引数は IP|FQDN
 function ssh-hostclean() {
+  [ "$1" = "" ] && return
   ssh-keygen -R $1
   ssh-keyscan -H $1 >> ~/.ssh/known_hosts
 }
