@@ -12,17 +12,3 @@ if ! grep "anyenv init" ~/.bashrc; then
   echo "Please execute source ~/.bashrc"
 fi
 
-# for pyenv
-#   LANG=C yum -y groupinstall 'Development Tools'
-#   yum install zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel -y
-# example)
-#   $ pyenv install -l 
-#   $ pyenv install 3.6.6
-#   $ pyenv global 3.6.6
-# ex2)
-#   $ pip install awscli --upgrade
-#   $ aws --version
-
-# anyenv install pyenv
-# anyenv install rbenv
-# anyenv install ndenv
