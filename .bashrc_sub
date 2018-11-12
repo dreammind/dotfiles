@@ -41,6 +41,11 @@ if [ "$PS1" != "" ]; then
   stty stop undef
 fi
 
+# for Ubuntu Console
+if [ "$TERM" = "linux" ]; then
+  export LANG=en_US.UTF-8
+fi
+
 
 if test -x "/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"; then
   export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
@@ -61,10 +66,6 @@ if test -x "$(which autojump 2>/dev/null)"; then
     fi
   elif test -f /usr/share/autojump/autojump.bash; then
     . /usr/share/autojump/autojump.bash
-  fi
-
-  if [ "$PS1" != "" ]; then
-    echo "Please use autojump. j dir"
   fi
 fi
 
