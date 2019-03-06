@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+ROLE="$USER"
+
+sudo su - postgres psql << EOF
+CREATE ROLE "$ROLE"
+  WITH LOGIN PASSWORD '$ROLE'
+  NOSUPERUSER INHERIT CREATEROLE;
+
+CREATE DATABASE "$ROLE"
+  WITH OWNER = "$ROLE"
+  ENCODING = 'UTF8'
+  TABLESPACE = pg_default
+  CONNECTION LIMIT = -1;
+EOF
