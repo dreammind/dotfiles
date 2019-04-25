@@ -15,7 +15,7 @@ HISTSIZE=20000
 HISTFILESIZE=40000
 
 # bind
-if [ "$PS1" != "" ]; then
+if [ "\$PS1" != "" ]; then
   bind '"\C-p": history-search-backward'
   bind '"\C-n": history-search-forward'
 fi
