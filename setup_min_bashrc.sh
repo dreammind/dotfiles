@@ -18,6 +18,7 @@ HISTFILESIZE=40000
 if [ "\$PS1" != "" ]; then
   bind '"\C-p": history-search-backward'
   bind '"\C-n": history-search-forward'
+  PS1="\u@\h:[\W]# "
 fi
 
 alias df='df -h'
