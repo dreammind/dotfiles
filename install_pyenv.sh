@@ -9,7 +9,7 @@ elif ! which anyenv > /dev/null; then
 fi
 
 if grep -i ubuntu /etc/issue.net >/dev/null 2>&1; then
-  sudo apt -y install autoconf bison build-essential zlib1g-dev libssl-dev libyaml-dev libreadline6-dev libncurses5-dev libsqlite3-dev libbz2-dev libffi-dev
+  sudo apt -y install autoconf bison build-essential zlib1g-dev libssl-dev libyaml-dev libreadline6-dev libncurses5-dev libsqlite3-dev libbz2-dev libffi-dev tk-dev
 elif test -f /etc/redhat-release >/dev/null 2>&1; then
   LANG=C yum -y groupinstall 'Development Tools'
   yum install zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel libffi-devel -y
