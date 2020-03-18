@@ -41,5 +41,8 @@ fi
 #
 #   確認は
 #   $ pyenv versions
+#
+#   削除は
+#   $ pyenv uninstall foo-proj
 
 
