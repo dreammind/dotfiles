@@ -17,6 +17,12 @@ fi
 
 anyenv install pyenv
 
+# Install pyenv-virtualenv
+if ! test -d $(pyenv_root)/plugins/pyenv-virtualenv; then
+  git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+fi
+
+
 # example)
 #   $ pyenv install -l
 #   $ pyenv install 3.6.6
