@@ -1,6 +1,9 @@
 #!/bin/bash
 # Information
-#   1) anyenv git pull を実行すると **envとプラグインがアップデートされる
+#   1) **envとプラグインをアップデート
+#      $ anyenv git pull
+#   2) インストール済みの**env系のバージョンを確認
+#      $ anyenv versions
 
 # for anyenv
 if ! test -d ~/.anyenv; then
