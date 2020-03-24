@@ -2,7 +2,7 @@
 
 # for anyenv
 if ! test -d ~/.anyenv; then
-  git clone https://github.com/riywo/anyenv ~/.anyenv
+  git clone https://github.com/anyenv/anyenv ~/.anyenv
 else
   (cd ~/.anyenv; git pull --rebase)
 fi
