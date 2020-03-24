@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if which ndenv > /dev/null; then
-  echo "ndenv already installed."
+if which nodenv > /dev/null; then
+  echo "nodenv already installed."
   exit
 fi
 
@@ -10,5 +10,4 @@ if ! which anyenv > /dev/null; then
   exit 1
 fi
 
-anyenv install ndenv
-
+anyenv install nodenv
