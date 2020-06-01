@@ -24,6 +24,8 @@ if test -f /etc/issue; then
     uname="CentOS"
   elif grep -i Redhat /etc/redhat-release > /dev/null; then
     uname="RedHat"
+  elif grep -i Alpine /etc/issue > /dev/null; then
+    uname="Alpine"
   fi
 fi
 
