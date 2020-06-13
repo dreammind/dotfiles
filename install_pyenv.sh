@@ -16,6 +16,7 @@ elif test -f /etc/redhat-release >/dev/null 2>&1; then
 fi
 
 anyenv install pyenv
+eval "$(anyenv init -)"
 
 # example)
 #   $ pyenv install -l
