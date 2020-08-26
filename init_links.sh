@@ -83,3 +83,8 @@ fi
 if ! grep ".bashrc_sub" $HOME/.bashrc > /dev/null; then
   echo "source $MY_HOME/.bashrc_sub" >> $HOME/.bashrc
 fi
+if test -f $HOME/.zshrc; then
+  if ! grep ".zshrc_sub" $HOME/.zshrc > /dev/null; then
+    echo "source $MY_HOME/.zshrc_sub" >> $HOME/.zshrc
+  fi
+fi
