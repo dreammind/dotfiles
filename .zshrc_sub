@@ -1,0 +1,126 @@
+#
+# TODO
+# anyenv...,
+uname=$(uname)
+if test -f /etc/issue; then
+  if grep -i ubuntu /etc/issue > /dev/null; then
+    uname="Ubuntu"
+  elif grep -i CentOS /etc/redhat-release > /dev/null; then
+    uname="CentOS"
+  elif grep -i Redhat /etc/redhat-release > /dev/null; then
+    uname="RedHat"
+  elif grep -i Alpine /etc/issue > /dev/null; then
+    uname="Alpine"
+  fi
+fi
+
+
+bindkey -e	# emacsバインディング
+
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+setup_ls() {
+  if [ "$uname" = "Ubuntu" -o "$uname" = "RedHat" -o "$uname" = "CentOS" -o "$uname" = "CYGWIN_NT-6.1" ]; then
+    eval `dircolors -b ~/.dircolors`
+    alias ls="ls --color=auto"
+  elif [ "$uname" = "Darwin" ]; then
+    export LSCOLORS=gxfxcxdxCxegedabagacad
+    alias  ls='ls -Gh'
+  fi
+}
+
+
+if test "$PS1" != ""; then
+  # bindkey
+  #bindkey '^P' history-search-backward
+  #bindkey '^N' history-search-forward
+  # test
+  bindkey '^P' history-beginning-search-backward
+  bindkey '^N' history-beginning-search-forward
+  setopt prompt_subst
+  PS1='@%m:[%1d]$(parse_git_branch)\$ '
+
+  #setopt auto_cd	# cdコマンドを省略して、ディレクトリ名のみで移動
+  setup_ls
+
+  # for ctrl-s
+  stty stop undef
+fi
+
+
+#
+# history
+#
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=40000
+export SAVEHIST=60000
+setopt hist_ignore_dups   # 重複は記録しない
+setopt share_history      # ターミナル間でヒストリを共有する(便利)
+setopt hist_reduce_blanks # 余分な空白は詰めて記録
+setopt extended_history   # HISTFILEに時間も記録
+
+
+#
+# export
+#
+export EDITOR="vim"
+
+# for Ubuntu Console
+if test "$TERM" = "linux"; then
+  export LANG=en_US.UTF-8
+fi
+
+
+if test -x "/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"; then
+  export PATH="/usr/local/share/git-core/contrib/diff-highlight:$PATH"
+fi
+
+if test -x "$(which go 2>/dev/null)"; then
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+  if ! test -d $GOPATH; then
+    mkdir -p $GOPATH
+  fi
+fi
+
+if test -x "$(which autojump 2>/dev/null)"; then
+  if [  "$uname" = "Darwin" ]; then
+    if test -f /usr/local/etc/profile.d/autojump.sh; then
+      . /usr/local/etc/profile.d/autojump.sh
+    fi
+  elif test -f /usr/share/autojump/autojump.bash; then
+    . /usr/share/autojump/autojump.bash
+  fi
+fi
+
+#
+# alias
+#
+if test -x "/usr/local/bin/ctags"; then
+  alias   ctags='/usr/local/bin/ctags'
+fi
+alias   vi='vim'
+alias   pd='pushd' # push directory
+alias   bd='popd'  # back directory
+
+alias   df='df -h'
+alias   du='du -h'
+alias   mkdir='mkdir -p'
+alias   grep='grep --color'
+alias   be='bundle exec'
+#
+alias   ceall='find . -name "*~" | xargs /bin/rm -f'
+alias   z='suspend'
+if which lv > /dev/null; then
+  alias   less='lv'
+fi
+alias   mv='mv -i'
+alias   cp='cp -i'
+
+#alias   h='history'
+alias   h='history -E -i 1'	# ヒストリの全履歴の一覧
+alias   psa='ps auxww'
+alias   cls='clear'
