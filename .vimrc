@@ -180,7 +180,7 @@ Plugin 'GutenYe/json5.vim'
 "   a, b,c
 "   ddd, eee, fff
 "   :Tabulaize /,/
-"   -> 結果 
+"   -> 結果
 "   a   , b   , c
 "   ddd , eee , fff
 " ex2)
@@ -194,7 +194,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_new_list_item_indent = 2 
+let g:vim_markdown_new_list_item_indent = 2
 
 Plugin 'derekwyatt/vim-scala'
 
@@ -260,7 +260,7 @@ Plugin 'posva/vim-vue'
 Plugin 'yosssi/vim-ace'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
-"  
+"
 "
 Plugin 'leafgarland/typescript-vim'
 
@@ -337,8 +337,8 @@ let g:bookmark_auto_close = 1
 "   :vim {pattern} app/**/*.rb
 "   :args ./**/*.html
 "
-" :args `git ls-files app config -x *.png`           
-" :args `find app -name '*.rb'`           
+" :args `git ls-files app config -x *.png`
+" :args `find app -name '*.rb'`
 "   -> これで##にgitで管理しているファイル一覧のappとconfigが格納される
 " :args `git ls-files '*.go'`
 "   -> git管理下なら、go関連のファイルだけを対象にするなら
@@ -397,7 +397,7 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType jade set omnifunc=jadecomplete#CompleteJade
 
 " ファイルタイプごとの設定
-" ts:tabstop, sw:shift width, st=soft tab stop, 
+" ts:tabstop, sw:shift width, st=soft tab stop,
 autocmd FileType c   set ts=2 sw=2 st=2 expandtab
 autocmd FileType cpp set ts=2 sw=2 st=2 expandtab
 autocmd FileType javascript set ts=2 sw=2 st=2 expandtab
