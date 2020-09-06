@@ -96,12 +96,20 @@ if test -x "$(which autojump 2>/dev/null)"; then
   fi
 fi
 
+# 引数は IP|FQDN
+ssh-hostclean() {
+  [ "$1" = "" ] && return
+  ssh-keygen -R $1
+  ssh-keyscan -H $1 >> ~/.ssh/known_hosts
+}
+
 #
 # alias
 #
 if test -x "/usr/local/bin/ctags"; then
   alias   ctags='/usr/local/bin/ctags'
 fi
+alias 	ssh-hostclean='ssh-hostclean'
 alias   vi='vim'
 alias   pd='pushd' # push directory
 alias   bd='popd'  # back directory
@@ -120,7 +128,6 @@ fi
 alias   mv='mv -i'
 alias   cp='cp -i'
 
-#alias   h='history'
 alias   h='history -E -i 1'	# ヒストリの全履歴の一覧
 alias   psa='ps auxww'
 alias   cls='clear'
