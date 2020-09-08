@@ -11,3 +11,7 @@ if ! which anyenv > /dev/null; then
 fi
 
 anyenv install nodenv
+
+if ! test -f $(anyenv root)/envs/nodenv/default-packages; then
+  touch $(anyenv root)/envs/nodenv/default-packages
+fi
