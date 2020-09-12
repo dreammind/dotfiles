@@ -18,7 +18,7 @@ fi
 bindkey -e	# emacsバインディング
 
 
-parse_git_branch() {
+function parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
@@ -97,7 +97,7 @@ if test -x "$(which autojump 2>/dev/null)"; then
 fi
 
 # 引数は IP|FQDN
-ssh-hostclean() {
+function ssh-hostclean() {
   [ "$1" = "" ] && return
   ssh-keygen -R $1
   ssh-keyscan -H $1 >> ~/.ssh/known_hosts
