@@ -1,6 +1,8 @@
 # # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
+umask 027
+
 # 引数は IP|FQDN
 function ssh-hostclean() {
   [ "$1" = "" ] && return

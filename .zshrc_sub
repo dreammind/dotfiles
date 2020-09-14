@@ -14,7 +14,7 @@ if test -f /etc/issue; then
   fi
 fi
 
-
+umask 027
 bindkey -e	# emacsバインディング
 
 
