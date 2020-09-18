@@ -159,6 +159,9 @@ Plugin 'vim-ruby/vim-ruby'
 " Better Javascript Indentation
 Plugin 'pangloss/vim-javascript'
 
+" reactのシンタックスハイライト
+Plugin 'maxmellon/vim-jsx-pretty'
+
 " jQuery
 Plugin 'jQuery'
 
