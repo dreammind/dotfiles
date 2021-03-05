@@ -99,6 +99,8 @@ fi
 # 引数は IP|FQDN
 function ssh-hostclean() {
   [ "$1" = "" ] && return
+  ip=$(which dig > /dev/null && dig $1 +short)
+  [ "$ip" != "" ] && ssh-keygen -R $ip
   ssh-keygen -R $1
   ssh-keyscan -H $1 >> ~/.ssh/known_hosts
 }
