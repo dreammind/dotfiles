@@ -19,6 +19,9 @@ anyenv install pyenv
 eval "$(anyenv init -)"
 
 # example)
+#   // pyenv関連のプラグインを更新する
+#   $ pyenv update
+#
 #   $ pyenv install -l
 #   $ pyenv install 3.6.6
 #   $ pyenv global 3.6.6
@@ -26,9 +29,18 @@ eval "$(anyenv init -)"
 #   $ pip install awscli --upgrade
 #   $ aws --version
 
+# Install pyenv update
+if ! test -d $(pyenv root)/plugins/pyenv-update; then
+  git clone https://github.com/pyenv/pyenv-update.git $(pyenv root)/plugins/pyenv-update
+fi
+
 # Install pyenv-virtualenv
 if ! test -d $(pyenv root)/plugins/pyenv-virtualenv; then
   git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+fi
+
+if ! grep 'envs/pyenv/shims'; then
+  export 'PATH="$HOME/.anyenv/envs/pyenv/shims:$PATH"' >> ~/.bashrc
 fi
 
 if ! grep virtualenv-init ~/.bashrc; then
