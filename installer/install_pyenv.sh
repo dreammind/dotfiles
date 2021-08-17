@@ -39,7 +39,7 @@ if ! test -d $(pyenv root)/plugins/pyenv-virtualenv; then
   git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 fi
 
-if ! grep 'envs/pyenv/shims'; then
+if ! grep 'envs/pyenv/shims' ~/.bashrc; then
   export 'PATH="$HOME/.anyenv/envs/pyenv/shims:$PATH"' >> ~/.bashrc
 fi
 
