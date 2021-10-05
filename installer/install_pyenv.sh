@@ -40,7 +40,7 @@ if ! test -d $(pyenv root)/plugins/pyenv-virtualenv; then
 fi
 
 if ! grep 'envs/pyenv/shims' ~/.bashrc; then
-  export 'PATH="$HOME/.anyenv/envs/pyenv/shims:$PATH"' >> ~/.bashrc
+  echo 'export PATH="$HOME/.anyenv/envs/pyenv/shims:$PATH"' >> ~/.bashrc
 fi
 
 if ! grep virtualenv-init ~/.bashrc; then
