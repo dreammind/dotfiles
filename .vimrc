@@ -373,6 +373,11 @@ nmap Gp :cprevious<CR>
 Plugin 'editorconfig/editorconfig-vim'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
+" テキストベースでUMLを記述できる
+Plugin 'aklt/plantuml-syntax'
+autocmd FileType plantuml set ts=2 sw=2 st=2 expandtab
+
+" --------*--------*--------*--------*--------*--------*--------*--------
 "  多言語シンタックスチェック
 Plugin 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'passive',
@@ -431,4 +436,5 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 " 色付けon. macのjadeの色付けがうまくいかないので、下に移動した。
 syntax on
+
 
