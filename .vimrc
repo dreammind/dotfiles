@@ -424,8 +424,8 @@ autocmd FileType yaml set ts=2 sw=2 st=2 expandtab
 autocmd FileType gradle set ts=2 sw=2 st=2 expandtab
 autocmd FileType python set ts=4 sw=4 st=4 expandtab
 autocmd FileType vue set ts=2 sw=2 st=2 expandtab
-" マークダウンのインデントはスペース4つが基本
-autocmd FileType markdown set ts=4 sw=4 st=4 expandtab
+" マークダウンのインデントはスペース4つが基本だが、githubは2個なので2とする
+autocmd FileType markdown set ts=2 sw=2 st=2 expandtab
 autocmd FileType protobuf set ts=2 sw=2 st=2 expandtab
 
 " 保存時に行末の空白を自動で削除
