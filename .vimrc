@@ -153,6 +153,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  言語関連
 "
+
 Plugin 'vim-ruby/vim-ruby'
 
 " javascriptを利用する場合、jshint/jslintのインストールが必須。jslintがよさげ
@@ -264,8 +265,10 @@ Plugin 'yosssi/vim-ace'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "
-"
+" Typescriptのシンタックスハイライト
 Plugin 'leafgarland/typescript-vim'
+" React JSX シンタックスハイライト
+Plugin 'peitalin/vim-jsx-typescript'
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -409,6 +412,9 @@ autocmd FileType jade set omnifunc=jadecomplete#CompleteJade
 autocmd FileType c   set ts=2 sw=2 st=2 expandtab
 autocmd FileType cpp set ts=2 sw=2 st=2 expandtab
 autocmd FileType javascript set ts=2 sw=2 st=2 expandtab
+autocmd FileType javascriptreact set ts=2 sw=2 st=2 expandtab
+autocmd FileType typescript set ts=2 sw=2 st=2 expandtab
+autocmd FileType typescriptreact set ts=2 sw=2 st=2 expandtab
 autocmd FileType html set ts=2 sw=2 st=2 expandtab
 autocmd FileType ruby set ts=2 sw=2 st=2 expandtab
 autocmd FileType sh  set ts=2 sw=2 st=2 expandtab
