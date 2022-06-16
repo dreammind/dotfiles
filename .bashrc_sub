@@ -65,6 +65,10 @@ if test -x "$(which go 2>/dev/null)"; then
   fi
 fi
 
+if test -f $HOME/.autojump/bin/autojump; then
+  # windows の mingw 用
+  PATH=$HOME/.autojump/bin;$PATH
+fi
 if test -x "$(which autojump 2>/dev/null)"; then
   if [  "$uname" = "Darwin" ]; then
     if test -f /usr/local/etc/profile.d/autojump.sh; then
@@ -72,6 +76,8 @@ if test -x "$(which autojump 2>/dev/null)"; then
     fi
   elif test -f /usr/share/autojump/autojump.bash; then
     . /usr/share/autojump/autojump.bash
+  elif test -f $HOME/.autojump/share/autojump/autojump.bash; then
+    . $HOME/.autojump/share/autojump/autojump.bash
   fi
 fi
 
