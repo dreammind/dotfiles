@@ -3,7 +3,7 @@ escape ^Tt
 
 # メモ
 #  c (create) 新しいウィンドウとシェルを生成
-#  d (detach) 
+#  d (detach)
 #  S (split) 画面を2分割
 #  TAB       ウィンドウを移動
 #  n (next)  次のウィンドウに切り替える
@@ -12,4 +12,8 @@ escape ^Tt
 #  K (kill)  現在のウィンドウを破棄する
 #  w         ウィンドウの一覧を表示
 #
-# detachしたscreenに接続。screen -r
+# * detachしたscreenに接続。screen -r
+# * attached したままのscreenは一旦デタッチしてからアタッチする。
+#   例) screen -ls
+#       ....
+#       screen -d PID
