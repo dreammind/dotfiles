@@ -278,6 +278,12 @@ autocmd FileType go nmap <Leader>b  <Plug>(go-build)
 autocmd FileType go nmap <Leader>r  <Plug>(go-run)
 autocmd FileType go set ts=2 sw=2 st=2
 
+" 全体の色を決定
+set background=dark
+"colorscheme default
+"colorscheme pablo
+colorscheme industry
+
 " --------*--------*--------*--------*--------*--------*--------*--------
 Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
@@ -292,7 +298,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#3c3c3c ctermbg=darkgr
 let g:indent_guides_color_change_percent = 30
 " ガイドの幅
 let g:indent_guides_guide_size = 1
-colorscheme elflord
+
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 " ctags関連
