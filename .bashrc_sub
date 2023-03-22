@@ -88,7 +88,7 @@ if [ "$uname" = "Darwin" ]; then
 fi
 
 if [ "$PS1" != "" ]; then
-  if [ "$uname" = "Ubuntu" -o "$uname" = "RedHat" -o "$uname" = "CentOS" -o "$uname" = "CYGWIN_NT-6.1" ]; then
+  if [ "$uname" = "Ubuntu" -o "$uname" = "RedHat" -o "$uname" = "CentOS" -o "$uname" = "CYGWIN_NT-6.1" -o "$uname" = "MINGW64_NT-10.0-22000" ]; then
     eval `dircolors -b ~/.dircolors`
     alias ls="ls --color=auto"
   elif [ "$uname" = "Darwin" ]; then
