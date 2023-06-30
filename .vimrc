@@ -399,6 +399,11 @@ let g:syntastic_python_checkers = ['pylint']
 " ファイルセーブ時に自動的にシンタックスチェックしない
 let g:syntastic_check_on_wq = 0
 
+" --------*--------*--------*--------*--------*--------*--------*--------
+" ノーマルモードに戻るとき、IMEをオフにする。
+" https://qiita.com/aosho235/items/2a8ae994fbf78872cef9
+autocmd InsertLeave * :silent !/usr/local/bin/im-select com.apple.keylayout.ABC
+
 
 " --------*--------*--------*--------*--------*--------*--------*--------
 "  Vundle.vimの終端
