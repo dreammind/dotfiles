@@ -113,7 +113,9 @@ alias   be='bundle exec'
 #
 alias   ceall='find . -name "*~" | xargs /bin/rm -f'
 alias   z='suspend'
-alias   less='lv'
+if test -x "$(which lv 2>/dev/null)"; then
+  alias   less='lv'
+fi
 alias   mv='mv -i'
 alias   cp='cp -i'
 
