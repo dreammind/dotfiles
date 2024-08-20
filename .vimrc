@@ -402,7 +402,14 @@ let g:syntastic_check_on_wq = 0
 " --------*--------*--------*--------*--------*--------*--------*--------
 " ノーマルモードに戻るとき、IMEをオフにする。
 " https://qiita.com/aosho235/items/2a8ae994fbf78872cef9
-autocmd InsertLeave * :silent !/usr/local/bin/im-select com.apple.keylayout.ABC
+
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    autocmd InsertLeave * :silent !/usr/local/bin/im-select com.apple.keylayout.ABC
+  endif
+endif
+
 
 
 " --------*--------*--------*--------*--------*--------*--------*--------
