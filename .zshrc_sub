@@ -86,10 +86,18 @@ if test -x "$(which go 2>/dev/null)"; then
   fi
 fi
 
+if test -d "/opt/homebrew/bin"; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+
 if test -x "$(which autojump 2>/dev/null)"; then
   if [  "$uname" = "Darwin" ]; then
     if test -f /usr/local/etc/profile.d/autojump.sh; then
       . /usr/local/etc/profile.d/autojump.sh
+    fi
+    if test -f /opt/homebrew/etc/autojump.sh; then
+      source /opt/homebrew/etc/autojump.sh
     fi
   elif test -f /usr/share/autojump/autojump.zsh; then
     . /usr/share/autojump/autojump.zsh
