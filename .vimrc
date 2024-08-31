@@ -406,7 +406,7 @@ let g:syntastic_check_on_wq = 0
 if has("unix")
   let s:uname = system("uname")
   if s:uname == "Darwin\n"
-    autocmd InsertLeave * :silent !/usr/local/bin/im-select com.apple.keylayout.ABC
+    autocmd InsertLeave * :silent !im-select com.apple.keylayout.ABC
   endif
 endif
 
