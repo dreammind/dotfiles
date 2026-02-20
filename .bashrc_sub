@@ -122,3 +122,7 @@ alias   cp='cp -i'
 alias   h='history'
 alias   psa='ps auxww'
 alias   cls='clear'
+
+if test "$MSYSTEM" = "UCRT64"; then
+  alias pbcopy='clip'
+fi
